@@ -18,10 +18,10 @@ TagManager:
   - EnemyBullet
   - Gimmick
   - Wall
-  - 
-  - 
-  - 
-  - 
+  - Explode
+  - Items
+  - FlickEnemy
+  - Bomb
   - 
   - 
   - 
