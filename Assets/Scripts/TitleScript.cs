@@ -6,6 +6,7 @@ public class TitleScript : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
+        // ÉTÉEÉìÉhÇÃì«Ç›çûÇ›
         LoadSound();
         Sound.PlayBGM("title");
     }
@@ -18,6 +19,17 @@ public class TitleScript : MonoBehaviour
     public void PushStart()
     {
         SceneManager.LoadScene("GameScene", LoadSceneMode.Single);
+    }
+
+    public void PushHowToPlay()
+    {
+        SceneManager.LoadScene("HowToPlayScene", LoadSceneMode.Single);
+    }
+
+    public void PushQuit()
+    {
+        UnityEditor.EditorApplication.isPlaying = false;
+        //UnityEngine.Application.Quit();
     }
 
     private void LoadSound()

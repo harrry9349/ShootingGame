@@ -13,8 +13,7 @@ GameObject:
   - component: {fileID: 1456766682596502459}
   - component: {fileID: 2791047995626482156}
   - component: {fileID: 2347694389367324745}
-  - component: {fileID: 8032283105440468752}
-  - component: {fileID: -5632000575992497778}
+  - component: {fileID: 5340581143067985177}
   m_Layer: 8
   m_Name: FlickShotPrefab
   m_TagString: Untagged
@@ -31,7 +30,7 @@ RectTransform:
   m_GameObject: {fileID: 1456766682596502457}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 100, y: 100, z: 1}
+  m_LocalScale: {x: 250, y: 250, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -83,7 +82,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 135775696, guid: e0494fd550a5b77448660c52375607cf, type: 3}
+  m_Sprite: {fileID: -1698893472, guid: c6073772ead0f4d4786beb0ae80e86f8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -106,7 +105,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7670f28204c1114a839bef1066e1262, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deleteTime: 0.5
+  deleteTime: 0.4
 --- !u!58 &2791047995626482156
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -120,9 +119,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.0006622968, y: -0.00017716362}
   serializedVersion: 2
-  m_Radius: 0.4921875
+  m_Radius: 0.004706081
 --- !u!50 &2347694389367324745
 Rigidbody2D:
   serializedVersion: 4
@@ -144,7 +143,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 0
---- !u!95 &8032283105440468752
+--- !u!95 &5340581143067985177
 Animator:
   serializedVersion: 4
   m_ObjectHideFlags: 0
@@ -154,7 +153,7 @@ Animator:
   m_GameObject: {fileID: 1456766682596502457}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 3f6a8712bedd98f4f84c461e7a0e3b98, type: 2}
+  m_Controller: {fileID: 9100000, guid: 71fa1a397522b7c4aad7b27fb36b42af, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -164,18 +163,3 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!111 &-5632000575992497778
-Animation:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1456766682596502457}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Animation: {fileID: 7400000, guid: d4059936844563c4ba1747aa304da404, type: 2}
-  m_Animations: []
-  m_WrapMode: 0
-  m_PlayAutomatically: 1
-  m_AnimatePhysics: 0
-  m_CullingType: 0
