@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6325367258927840488}
   - component: {fileID: 6325367258927840489}
   - component: {fileID: 6325367258927840490}
-  - component: {fileID: 2361988962837383170}
+  - component: {fileID: 5216683379235970537}
   m_Layer: 14
   m_Name: RifleAMOPrefab
   m_TagString: Untagged
@@ -124,7 +124,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 0
---- !u!114 &2361988962837383170
+--- !u!114 &5216683379235970537
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -136,3 +136,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f834e5c08bf12a0439e8dadb1c53e5ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  moveSpeed: 0.4
+  itemPattern: 0

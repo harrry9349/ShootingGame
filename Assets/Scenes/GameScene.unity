@@ -173,9 +173,14 @@ MonoBehaviour:
   Enemy4Prefab: {fileID: 753178598116491358, guid: aa528c772cbe126438418a55cba37ffd, type: 3}
   Enemy5Prefab: {fileID: 1473951291692284563, guid: ca8353fc84ca3ed46885e1364e7e8608, type: 3}
   Enemy6Prefab: {fileID: 753178598116491358, guid: d48107e618a612f409fcf6f0f0438804, type: 3}
+  Enemy7Prefab: {fileID: 753178598116491358, guid: a9770b8611626f841ab2618aba1250fb, type: 3}
+  Enemy8Prefab: {fileID: 753178598116491358, guid: 04f93de6e300bdf4dacaed89efb39a5d, type: 3}
   Item1Prefab: {fileID: 6325367258927840494, guid: 15388f31b46fae64890566e06617a539, type: 3}
-  Item2Prefab: {fileID: 6325367258927840494, guid: 7ad21838d658e014f9ebed924f53cfe8, type: 3}
+  Item2Prefab: {fileID: 6325367258927840494, guid: cf36269e9e9803b479512e0ab80bb5b0, type: 3}
+  Item3Prefab: {fileID: 6325367258927840494, guid: aec13c8cf310ae14cb14669b7dd6007e, type: 3}
   GimmickPrefab: {fileID: 5419372806278022050, guid: 7c67b255fd517dd4c818f07fc9ff0bc6, type: 3}
+  BombPrefab: {fileID: 6325367258927840494, guid: ce8b96a03672d22499e45d5a6defce09, type: 3}
+  BossPrefab: {fileID: 9002801551067761087, guid: e11985dd17e78cb4d8afdeb92d44011b, type: 3}
   score: 0
   ScoreText: {fileID: 331330134}
 --- !u!1 &331330132
@@ -363,6 +368,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BulletPrefab: {fileID: 4579829945278250654, guid: 8cff3ea9ce5ffb243b1e1e2856b0cffb, type: 3}
+  mouseClickController: {fileID: 617214122}
+  GameManager: {fileID: 843644225}
   ExplodePrefab: {fileID: 1456766682596502457, guid: 74adcc265efda4a47a1155c9823f9e2f, type: 3}
   remainsShot: 20
   BulletRemainsText: {fileID: 497256508}
@@ -898,7 +905,7 @@ GameObject:
   m_Component:
   - component: {fileID: 617214121}
   - component: {fileID: 617214122}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: MouseClickController
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -935,6 +942,98 @@ MonoBehaviour:
   BulletRemainsText: {fileID: 1442372413}
   FlickShotPrefab: {fileID: 1456766682596502457, guid: 5529dc2f439788c4fbb507244232d191, type: 3}
   remainsFlickshot: 20
+--- !u!1 &843644223
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 843644224}
+  - component: {fileID: 843644225}
+  m_Layer: 0
+  m_Name: GameSceneManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &843644224
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 843644223}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -231.01312, y: 41.974934, z: 314.32404}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &843644225
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 843644223}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2d9dd11620159b4b8797089b6552bf7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &1030990740
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1030990742}
+  - component: {fileID: 1030990741}
+  m_Layer: 0
+  m_Name: ScoreController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1030990741
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1030990740}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38e8ce5be7229bf4e8bfd422a8eed710, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  numEnemy: 9
+  ScoreText: {fileID: 331330134}
+  numShootDown: 
+  Score: 0
+--- !u!4 &1030990742
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1030990740}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 471.21695, y: 134.75871, z: -28.929508}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1231704067
 GameObject:
   m_ObjectHideFlags: 0

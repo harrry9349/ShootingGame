@@ -30,6 +30,14 @@ public class GameController : MonoBehaviour
     [SerializeField]
     public GameObject Enemy6Prefab;
 
+    /// <summary>敵７プレハブ</summary>
+    [SerializeField]
+    public GameObject Enemy7Prefab;
+
+    /// <summary>敵８プレハブ</summary>
+    [SerializeField]
+    public GameObject Enemy8Prefab;
+
     /// <summary>アイテム１プレハブ</summary>
     [SerializeField]
     public GameObject Item1Prefab;
@@ -38,9 +46,21 @@ public class GameController : MonoBehaviour
     [SerializeField]
     public GameObject Item2Prefab;
 
+    /// <summary>アイテム３プレハブ</summary>
+    [SerializeField]
+    public GameObject Item3Prefab;
+
     /// <summary>ギミックプレハブ</summary>
     [SerializeField]
     public GameObject GimmickPrefab;
+
+    /// <summary>爆弾プレハブ</summary>
+    [SerializeField]
+    public GameObject BombPrefab;
+
+    /// <summary>ボスプレハブ</summary>
+    [SerializeField]
+    public GameObject BossPrefab;
 
     /// <summary>
     /// スコア
@@ -82,35 +102,45 @@ public class GameController : MonoBehaviour
     private void GenEnemy()
     {
         // 1秒に1度敵発生処理を行う
+
+        // ボス
+        if (enemy_cnt % 120 == 0) Instantiate(BossPrefab, new Vector3(600f, 400f, 0), Quaternion.identity);
+
         if (enemy_cnt % 5 == 0)
         {
-            Instantiate(Item1Prefab, new Vector3(750f, -400f + 800 * Random.value, 0), Quaternion.identity);
+            Instantiate(Item1Prefab, new Vector3(750f, -400f + 800f * Random.value, 0), Quaternion.identity);
+            //Instantiate(Item2Prefab, new Vector3(750f, -400f + 800f * Random.value, 0), Quaternion.identity);
+            //Instantiate(BombPrefab, new Vector3(750f, -400f + 800f * Random.value, 0), Quaternion.identity);
         }
 
         if (enemy_cnt % 5 == 1)
         {
-            Instantiate(Enemy2Prefab, new Vector3(750f, -400f + 800 * Random.value, 0), Quaternion.identity);
+            Instantiate(Enemy2Prefab, new Vector3(750f, -400f + 800f * Random.value, 0), Quaternion.identity);
+            //Instantiate(Item3Prefab, new Vector3(750f, -400f + 800f * Random.value, 0), Quaternion.identity);
         }
 
         if (enemy_cnt % 5 == 2)
         {
-            Instantiate(EnemyPrefab, new Vector3(750f, -400f + 800 * Random.value, 0), Quaternion.identity);
+            //Instantiate(EnemyPrefab, new Vector3(750f, -400f + 800f * Random.value, 0), Quaternion.identity);
         }
 
         if (enemy_cnt % 5 == 3)
         {
-            Instantiate(Enemy3Prefab, new Vector3(750f, -400f + 800 * Random.value, 0), Quaternion.identity);
+            Instantiate(Enemy3Prefab, new Vector3(750f, -400f + 800f * Random.value, 0), Quaternion.identity);
         }
 
         if (enemy_cnt % 5 == 4)
         {
-            Instantiate(EnemyPrefab, new Vector3(750f, -400f + 800 * Random.value, 0), Quaternion.identity);
+            Instantiate(EnemyPrefab, new Vector3(750f, -400f + 800f * Random.value, 0), Quaternion.identity);
         }
 
         if (enemy_cnt % 10 == 5)
         {
-            Instantiate(GimmickPrefab, new Vector3(-700f + 1400 * Random.value, 400, 0), Quaternion.identity);
+            Instantiate(GimmickPrefab, new Vector3(-700f + 1400f * Random.value, 400f, 0), Quaternion.identity);
+            //Instantiate(Enemy7Prefab, new Vector3(750f, -400f + 800f * Random.value, 0), Quaternion.identity);
+            //Instantiate(Enemy8Prefab, new Vector3(750f, -400f + 800f * Random.value, 0), Quaternion.identity);
         }
+
         enemy_cnt++;
     }
 
@@ -119,6 +149,7 @@ public class GameController : MonoBehaviour
     {
         Sound.LoadBGM("ingame", "Thunderbolt");     // インゲーム画面の音楽
         Sound.LoadSE("pop", "Pop");                 // アイテム取得
+        Sound.LoadSE("heal", "heal");               // 回復
         Sound.LoadSE("damage", "damage");           // ダメージ
         Sound.LoadSE("Explode", "Explode");         // 爆発
         Sound.LoadSE("shot", "Shot");               // 弾丸発射

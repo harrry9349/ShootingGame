@@ -2,9 +2,15 @@ using UnityEngine;
 
 public class BulletController : MonoBehaviour
 {
+    /// <summary>
+    /// Á‹ŠÔ
+    /// </summary>
     [SerializeField]
     private float deleteTime;
 
+    /// <summary>
+    /// ˆÚ“®‘¬“x
+    /// </summary>
     [SerializeField]
     private float speed;
 

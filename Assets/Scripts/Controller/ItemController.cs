@@ -2,12 +2,18 @@ using UnityEngine;
 
 public class ItemController : MonoBehaviour
 {
+    /// <summary>移動速度<summary>
+    [SerializeField]
     private float moveSpeed;
+
+    /// <summary>アイテムパターン番号<summary>
+    [SerializeField]
+    private int itemPattern;
 
     // Start is called before the first frame update
     private void Start()
     {
-        this.moveSpeed = 1f + 1f * Random.value;
+        this.moveSpeed = moveSpeed + 1f * Random.value;
     }
 
     // Update is called once per frame
@@ -25,5 +31,10 @@ public class ItemController : MonoBehaviour
     {
         Debug.Log(gameObject.name);
         Destroy(gameObject);
+    }
+
+    public int GetItemPattern()
+    {
+        return itemPattern;
     }
 }

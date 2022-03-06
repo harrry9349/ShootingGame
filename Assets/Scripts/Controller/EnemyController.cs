@@ -3,9 +3,13 @@ using UnityEngine;
 /// <summary>敵コントローラークラス</summary>
 public class EnemyController : MonoBehaviour, IDamage
 {
-    /// <summary>移動速度</summary>
+    /// <summary>X移動速度</summary>
     [SerializeField]
-    private float moveSpeed;
+    private float moveSpeedX;
+
+    /// <summary>Y移動速度</summary>
+    [SerializeField]
+    private float moveSpeedY;
 
     /// <summary>敵弾丸プレハブ</summary>
     [SerializeField]
@@ -23,20 +27,40 @@ public class EnemyController : MonoBehaviour, IDamage
     [SerializeField]
     private int Damage;
 
+    /// <summary>発射する弾の数</summary>
+    [SerializeField]
+    private int bullets;
+
+    /// <summary>敵パターン</summary>
+    [SerializeField]
+    private int enemyPattern;
+
+    /// <summary>倒した時のスコア</summary>
+    [SerializeField]
+    public int score;
+
+    /// <summary>敵クラス</summary>
+    private Enemy enemy;
+
+    /// <summary>スコアコントローラー</summary>
+    public GameObject scoreObject;
+
     // Start is called before the first frame update
     private void Start()
     {
-        this.moveSpeed = 1f + 1f * Random.value;
-        InvokeRepeating("GenBullet", 1, 2);
+        moveSpeedX = moveSpeedX + 1f * Random.value;
+        InvokeRepeating("GenBullet", 1, 1);
+        enemy = new Enemy(health, Damage);
+        scoreObject = GameObject.Find("ScoreController");
     }
 
     // Update is called once per frame
     private void Update()
     {
         //移動
-        transform.Translate(-moveSpeed, 0, 0, Space.World);
+        transform.Translate(-moveSpeedX, -moveSpeedY, 0, Space.World);
         //画面外に出たら破壊
-        if (transform.position.x < -750f || transform.position.y < -400f)
+        if (transform.position.x < -750f || transform.position.y < -500f || transform.position.y > 500f)
         {
             Destroy(gameObject);
         }
@@ -62,9 +86,11 @@ public class EnemyController : MonoBehaviour, IDamage
         {
             // 接触した相手が弾丸ならダメージ計算
             // ダメージ計算
-            CalcDamage(selflayername, collayername);
+            health = health - enemy.CalcDamage(selflayername, collayername);
             if (health <= 0)
             {
+                //スコア追加
+                scoreObject.GetComponent<ScoreController>().AddScore(enemyPattern, score);
                 // 爆風
                 Breaking();
             }
@@ -74,7 +100,7 @@ public class EnemyController : MonoBehaviour, IDamage
     /// <summary>敵の弾生成</summary>
     private void GenBullet()
     {
-        Instantiate(EnemyBulletPrefab, transform.position, Quaternion.identity);
+        for (int i = 0; i < bullets; i++) Instantiate(EnemyBulletPrefab, transform.position, Quaternion.identity);
     }
 
     /// <summary>
@@ -83,7 +109,7 @@ public class EnemyController : MonoBehaviour, IDamage
     /// <returns>ダメージ</returns>
     public int GetDamage()
     {
-        return this.Damage;
+        return enemy.GetDamage();
     }
 
     /// <summary>破壊</summary>
@@ -93,42 +119,7 @@ public class EnemyController : MonoBehaviour, IDamage
         Sound.PlaySE("Explode");
         // 爆風
         Instantiate(ExplodePrefab, transform.position, Quaternion.identity);
-        // 敵オブジェクト破壊
+        // オブジェクト破壊
         Destroy(gameObject);
-    }
-
-    /// <summary>ダメージ計算 </summary>
-    /// <param name="selflayername">自分のオブジェクトのレイヤー</param>
-    /// <param name="collayername">接触したオブジェクトのレイヤー</param>
-
-    private void CalcDamage(string selflayername, string collayername)
-    {
-        int dmg = 0;
-        // プレイヤーの弾
-        if (collayername == "PlayerBullet")
-        {
-            if (selflayername == "Enemy")
-            {
-                dmg = 120;
-            }
-            else if (selflayername == "FlickEnemy")
-            {
-                dmg = 60;
-            }
-        }
-        // マウスの弾
-        else if (collayername == "MouseBullet")
-        {
-            if (selflayername == "Enemy")
-            {
-                dmg = 30;
-            }
-            else if (selflayername == "FlickEnemy")
-            {
-                dmg = 120;
-            }
-        }
-        // ダメージ
-        health = health - dmg;
     }
 }
