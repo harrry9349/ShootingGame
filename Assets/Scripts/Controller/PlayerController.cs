@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
@@ -9,6 +8,16 @@ public class PlayerController : MonoBehaviour
     /// </summary>
     [SerializeField]
     public GameObject BulletPrefab;
+
+    /// <summary>
+    /// マウス弾丸コントローラー
+    /// </summary>
+    public MouseClickController mouseClickController;
+
+    /// <summary>
+    /// ゲームシーンマネージャー
+    /// </summary>
+    public GameScript GameManager;
 
     /// <summary>
     /// 爆風プレハブ
@@ -130,29 +139,77 @@ public class PlayerController : MonoBehaviour
                 // HPが0になったら破壊
                 Breaking();
                 // ゲームオーバー処理
-                GameOver();
+                GameManager.GameOver();
             }
         }
 
         // アイテム
         else if (layername == "Items")
         {
-            // 弾の数増やす
-            //int ammo = coll.gameObject.GetComponent<EnemyController>().GetAmmo();
-            remainsShot += 5;
-            // 画面に反映
-            BulletRemainsText.text = remainsShot.ToString();
-            // サウンド
-            Sound.PlaySE("pop");
+            // アイテムパターン読み込み
+            int pattern = coll.gameObject.GetComponent<ItemController>().GetItemPattern();
+            Debug.Log(pattern);
+
+            // プレイヤー弾
+            if (pattern == 0)
+            {
+                // 弾の数増やす
+                remainsShot += 15;
+                // 画面に反映
+                BulletRemainsText.text = remainsShot.ToString();
+                // サウンド
+                Sound.PlaySE("pop");
+            }
+            else if (pattern == 1)
+            {
+                // 弾の数増やす
+                mouseClickController.AddAmmo(15);
+                // サウンド
+                Sound.PlaySE("pop");
+            }
+            // シールド（回復）
+            else if (pattern == 2)
+            {
+                // 回復
+                Heal(30);
+                // サウンド
+                Sound.PlaySE("heal");
+            }
         }
     }
 
-    private void Damage(int dmg)
+    public void Damage(int dmg)
     {
         // ダメージ
         health = health - dmg;
         // HP表示更新
-        HealthImage.GetComponent<RectTransform>().sizeDelta = new Vector2((HealthImage.GetComponent<RectTransform>().sizeDelta.x - dmg), HealthImage.GetComponent<RectTransform>().sizeDelta.y);
+        ReloadHealthImage(health);
+    }
+
+    private void Heal(int healing)
+    {
+        // 回復
+        health += healing;
+        if (health > 100) health = 100;
+        // HP表示更新
+        ReloadHealthImage(health);
+    }
+
+    // HP表示更新
+    private void ReloadHealthImage(int health)
+    {
+        HealthImage.GetComponent<RectTransform>().sizeDelta = new Vector2(health, HealthImage.GetComponent<RectTransform>().sizeDelta.y);
+
+        //残りHPが30以下のとき赤色にする
+        if (health <= 30)
+        {
+            HealthImage.GetComponent<Image>().color = new Color32(255, 0, 11, 255);
+        }
+        // それ以上のとき緑色にする
+        else
+        {
+            HealthImage.GetComponent<Image>().color = new Color32(11, 255, 0, 255);
+        }
     }
 
     private void Breaking()
@@ -163,10 +220,5 @@ public class PlayerController : MonoBehaviour
         Destroy(gameObject);
         // 爆風
         Instantiate(ExplodePrefab, transform.position, Quaternion.identity);
-    }
-
-    private void GameOver()
-    {
-        SceneManager.LoadScene("ResultScene", LoadSceneMode.Single);
     }
 }

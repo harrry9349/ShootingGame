@@ -13,8 +13,9 @@ GameObject:
   - component: {fileID: 6325367258927840489}
   - component: {fileID: 6325367258927840490}
   - component: {fileID: 5216683379235970537}
-  m_Layer: 14
-  m_Name: SniperAMOPrefab
+  - component: {fileID: 5562468755238066524}
+  m_Layer: 16
+  m_Name: BombPrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -28,7 +29,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6325367258927840494}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 328.7478, y: -272.2933, z: 0}
+  m_LocalPosition: {x: 325.5, y: -271.7, z: 0}
   m_LocalScale: {x: 100, y: 100, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -76,7 +77,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: d4314ec43e5cc6049bbbf5a0d72154c1, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 069eca27959ff1a48b2dc6680bca516b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -100,9 +101,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.019500121, y: 0}
+  m_Offset: {x: -0.00041351316, y: 0}
   serializedVersion: 2
-  m_Radius: 0.35250306
+  m_Radius: 0.3663675
 --- !u!50 &6325367258927840490
 Rigidbody2D:
   serializedVersion: 4
@@ -136,5 +137,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f834e5c08bf12a0439e8dadb1c53e5ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 0.4
-  itemPattern: 1
+--- !u!114 &5562468755238066524
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6325367258927840494}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6241554dae2c4554e9db3fb043d2dbb2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 0.01
+  deleteTime: 20
+  bullets: 20
+  ExplodePrefab: {fileID: 1456766682596502457, guid: 74adcc265efda4a47a1155c9823f9e2f, type: 3}
+  EnemyBulletPrefab: {fileID: 6325367258927840494, guid: 8361a7c962287124ba293641f6153370, type: 3}

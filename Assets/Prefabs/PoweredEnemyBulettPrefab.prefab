@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 6325367258927840488}
   - component: {fileID: 6325367258927840489}
   - component: {fileID: 6325367258927840490}
-  - component: {fileID: 5216683379235970537}
-  m_Layer: 14
-  m_Name: SniperAMOPrefab
+  - component: {fileID: 5035573541426924513}
+  m_Layer: 10
+  m_Name: PoweredEnemyBulettPrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 6325367258927840494}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 328.7478, y: -272.2933, z: 0}
-  m_LocalScale: {x: 100, y: 100, z: 1}
+  m_LocalScale: {x: 250, y: 250, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -76,8 +76,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: d4314ec43e5cc6049bbbf5a0d72154c1, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Sprite: {fileID: 21300000, guid: cdaa99ff22044704a9c0e56e4fb80047, type: 3}
+  m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -100,9 +100,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.019500121, y: 0}
+  m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.35250306
+  m_Radius: 0.06
 --- !u!50 &6325367258927840490
 Rigidbody2D:
   serializedVersion: 4
@@ -122,9 +122,9 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &5216683379235970537
+--- !u!114 &5035573541426924513
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -133,8 +133,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 6325367258927840494}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f834e5c08bf12a0439e8dadb1c53e5ad, type: 3}
+  m_Script: {fileID: 11500000, guid: 64aa0621bbedf6d449dfca3cfd65a758, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 0.4
-  itemPattern: 1
+  deleteTime: 6
+  Damage: 50

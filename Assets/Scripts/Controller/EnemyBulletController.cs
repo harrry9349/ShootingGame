@@ -14,6 +14,7 @@ public class EnemyBulletController : MonoBehaviour, IDamage
     // Start is called before the first frame update
     private void Start()
     {
+        // 弾のスピードはX,Yともに-1f～1fの間
         this.moveSpeedX = 2f * Random.value - 1f;
         this.moveSpeedY = 2f * Random.value - 1f;
         Destroy(gameObject, deleteTime);

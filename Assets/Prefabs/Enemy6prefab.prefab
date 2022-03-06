@@ -141,8 +141,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89016d01fc9f07b459de62e3b1f7afb4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 0
+  moveSpeedX: 0
+  moveSpeedY: 0.5
   EnemyBulletPrefab: {fileID: 6325367258927840494, guid: cea3b706450039e43a7c0d5b05dd85d1, type: 3}
   ExplodePrefab: {fileID: 1456766682596502457, guid: 74adcc265efda4a47a1155c9823f9e2f, type: 3}
-  Health: 0
-  Damage: 0
+  health: 400
+  Damage: 40
+  bullets: 5
+  enemyPattern: 5
+  score: 800
+  scoreObject: {fileID: 0}
