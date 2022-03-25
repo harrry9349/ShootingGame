@@ -3,17 +3,15 @@ using UnityEngine.SceneManagement;
 
 public class TitleScript : MonoBehaviour
 {
+    /// <summary>ハイスコア表示オブジェクト</summary>
+    private TitleHiscoreController HiscoreText;
+
     // Start is called before the first frame update
     private void Start()
     {
         // サウンドの読み込み
         LoadSound();
         Sound.PlayBGM("title");
-    }
-
-    // Update is called once per frame
-    private void Update()
-    {
     }
 
     public void PushStart()
@@ -28,13 +26,18 @@ public class TitleScript : MonoBehaviour
 
     public void PushQuit()
     {
-        UnityEditor.EditorApplication.isPlaying = false;
-        //UnityEngine.Application.Quit();
+        UnityEngine.Application.Quit();
+    }
+
+    public void PushReset()
+    {
+        // ハイスコアリセット
+        HiscoreText = GameObject.Find("HIScoreValueText").GetComponent<TitleHiscoreController>();
+        HiscoreText.ResetScore();
     }
 
     private void LoadSound()
     {
         Sound.LoadBGM("title", "Introduction");
-        Sound.LoadSE("Start", "StartGong");
     }
 }

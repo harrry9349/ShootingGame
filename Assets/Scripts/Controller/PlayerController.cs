@@ -20,12 +20,6 @@ public class PlayerController : MonoBehaviour
     public GameScript GameManager;
 
     /// <summary>
-    /// 爆風プレハブ
-    /// </summary>
-    [SerializeField]
-    public GameObject ExplodePrefab;
-
-    /// <summary>
     /// 残り弾数
     /// </summary>
     [SerializeField]
@@ -55,11 +49,17 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     public GameObject HealthImage;
 
+    /// <summary>
     ///  スピード
+    /// </summary>
     [SerializeField]
     private float speed;
 
-    // Start is called before the first frame update
+    /// <summary>
+    /// 爆風アニメーション
+    /// </summary>
+    private Animator animator;
+
     private void Start()
     {
         // 初期値を画面に反映する
@@ -103,11 +103,9 @@ public class PlayerController : MonoBehaviour
             {
                 // 弾生成
                 Instantiate(BulletPrefab, transform.position, Quaternion.identity);
-                Debug.Log(transform.position.x + "," + transform.position.y);
 
                 // 弾の数を減らす
                 remainsShot--;
-                Debug.Log(remainsShot);
                 // 画面に反映
                 BulletRemainsText.text = remainsShot.ToString();
                 // サウンド
@@ -138,8 +136,10 @@ public class PlayerController : MonoBehaviour
             {
                 // HPが0になったら破壊
                 Breaking();
-                // ゲームオーバー処理
-                GameManager.GameOver();
+                //音楽停止
+                Sound.StopBGM();
+                // オブジェクト破壊
+                Invoke("_Destroy", 0.2f);
             }
         }
 
@@ -148,7 +148,6 @@ public class PlayerController : MonoBehaviour
         {
             // アイテムパターン読み込み
             int pattern = coll.gameObject.GetComponent<ItemController>().GetItemPattern();
-            Debug.Log(pattern);
 
             // プレイヤー弾
             if (pattern == 0)
@@ -212,13 +211,25 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    // 爆発
     private void Breaking()
     {
         // サウンド
         Sound.PlaySE("Explode");
-        // プレイヤー破壊
-        Destroy(gameObject);
+
         // 爆風
-        Instantiate(ExplodePrefab, transform.position, Quaternion.identity);
+        this.animator = GetComponent<Animator>();
+        animator.SetTrigger("Explode");
+    }
+
+    private void _Destroy()
+    {
+        Destroy(gameObject);
+    }
+
+    private void OnDestroy()
+    {
+        // ゲームオーバー呼び出し
+        GameManager.GameOver();
     }
 }

@@ -137,6 +137,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f834e5c08bf12a0439e8dadb1c53e5ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  moveSpeed: 0
+  itemPattern: 0
 --- !u!114 &5562468755238066524
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -149,7 +151,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6241554dae2c4554e9db3fb043d2dbb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 0.01
+  moveSpeed: 1
   deleteTime: 20
   bullets: 20
   ExplodePrefab: {fileID: 1456766682596502457, guid: 74adcc265efda4a47a1155c9823f9e2f, type: 3}

@@ -9,18 +9,21 @@ public class ScoreController : MonoBehaviour
 
     /// <summary>スコア表示テキスト</summary>
     [SerializeField]
-    public Text ScoreText;
+    public Text scoreText;
 
     /// <summary>倒した敵の数</summary>
     public int[] numShootDown;
 
     /// <summary>スコア</summary>
-    public int Score;
+    public int totalScore;
+
+    /// <summary>スコア保存用スクリプタブルオブジェクト</summary>
+    public Score SAVE_SCORE;
 
     // Start is called before the first frame update
     private void Start()
     {
-        ScoreText.text = Score.ToString();
+        scoreText.text = totalScore.ToString();
         numShootDown = new int[numEnemy];
 
         for (var i = 0; i < numEnemy; i++)
@@ -29,10 +32,28 @@ public class ScoreController : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// スコア加算
+    /// </summary>
+    /// <param name="pattern">敵パターン</param>
+    /// <param name="score">加算スコア</param>
     public void AddScore(int pattern, int score)
     {
         numShootDown[pattern - 1]++;
-        Score += score;
-        ScoreText.text = Score.ToString();
+        totalScore += score;
+        scoreText.text = totalScore.ToString();
+    }
+
+    /// <summary>
+    /// スコア保存
+    /// </summary>
+    public void SaveScore()
+    {
+        SAVE_SCORE.numShootDown = new int[numEnemy];
+        for (int i = 0; i < numEnemy; i++)
+        {
+            SAVE_SCORE.numShootDown[i] = numShootDown[i];
+        }
+        SAVE_SCORE.totalScore = totalScore;
     }
 }

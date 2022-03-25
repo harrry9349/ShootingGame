@@ -39,8 +39,7 @@ public class MouseClickController : MonoBehaviour
                 mousePos.z = 10.0f;
                 Vector3 objPos = Camera.main.ScreenToWorldPoint(mousePos);
 
-                Debug.Log("左クリックを受け付けました");
-                Debug.Log(objPos.x + "," + objPos.y);
+                // 弾生成
                 Instantiate(FlickShotPrefab, objPos, Quaternion.identity);
 
                 // フリックショット用弾丸の残り数更新
@@ -53,8 +52,6 @@ public class MouseClickController : MonoBehaviour
                 Sound.PlaySE("unableshot");
             }
         }
-        if (Input.GetMouseButtonDown(1)) Debug.Log("右クリックを受け付けました");
-        if (Input.GetMouseButtonDown(2)) Debug.Log("中央クリックを受け付けました");
     }
 
     public void AddAmmo(int ammo)

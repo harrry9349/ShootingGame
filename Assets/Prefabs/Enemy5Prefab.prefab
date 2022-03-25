@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1473951291692284560}
   - component: {fileID: 1473951291692284561}
   - component: {fileID: 1707865252450291043}
+  - component: {fileID: -8315660953838870449}
   m_Layer: 15
   m_Name: Enemy5Prefab
   m_TagString: Untagged
@@ -104,15 +105,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeedX: 0
-  moveSpeedY: 0.5
+  moveSpeedY: 5
   EnemyBulletPrefab: {fileID: 6325367258927840494, guid: cea3b706450039e43a7c0d5b05dd85d1, type: 3}
-  ExplodePrefab: {fileID: 1456766682596502457, guid: 74adcc265efda4a47a1155c9823f9e2f, type: 3}
   health: 400
   Damage: 40
   bullets: 5
   enemyPattern: 6
-  score: 800
-  scoreObject: {fileID: 0}
+  score: 1000
 --- !u!70 &1707865252450291043
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -129,3 +128,23 @@ CapsuleCollider2D:
   m_Offset: {x: 0.0049607446, y: 0.017402686}
   m_Size: {x: 1.0099214, y: 0.5804011}
   m_Direction: 1
+--- !u!95 &-8315660953838870449
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1473951291692284563}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 3f6a8712bedd98f4f84c461e7a0e3b98, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
