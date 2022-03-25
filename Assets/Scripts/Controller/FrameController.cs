@@ -2,20 +2,27 @@ using UnityEngine;
 
 public class FrameController : MonoBehaviour, IDamage
 {
+    /// <summary>移動速度X<summary>
+    [SerializeField]
     private float moveSpeedX;
+
+    /// <summary>移動速度Y<summary>
+    [SerializeField]
     private float moveSpeedY;
 
+    /// <summary>消去時間<summary>
     [SerializeField]
     private float deleteTime;
 
+    /// <summary>ダメージ<summary>
     [SerializeField]
     private int Damage;
 
     // Start is called before the first frame update
     private void Start()
     {
-        this.moveSpeedX = 2f * Random.value;
-        this.moveSpeedY = 1f * Random.value;
+        this.moveSpeedX = moveSpeedX * Random.value;
+        this.moveSpeedY = moveSpeedY * Random.value;
         InvokeRepeating("ChangeTransformX", 1, 1);
         Destroy(gameObject, deleteTime);
     }
@@ -34,7 +41,6 @@ public class FrameController : MonoBehaviour, IDamage
     // 接触時の処理
     private void OnTriggerEnter2D(Collider2D coll)
     {
-        Debug.Log(gameObject.name);
         Destroy(gameObject);
     }
 

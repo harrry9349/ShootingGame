@@ -87,7 +87,7 @@ public class GameController : MonoBehaviour
         Sound.PlayBGM("ingame");
 
         // 敵発生処理のルーチン設定
-        InvokeRepeating("GenEnemy", 1, 1);
+        InvokeRepeating("GenEnemySet", 3, 1);
 
         // スコア表示
         ScoreText.text = score.ToString();
@@ -99,49 +99,178 @@ public class GameController : MonoBehaviour
     }
 
     // 敵発生処理
-    private void GenEnemy()
+    private void GenEnemySet()
     {
         // 1秒に1度敵発生処理を行う
 
         // ボス
-        if (enemy_cnt % 120 == 0) Instantiate(BossPrefab, new Vector3(600f, 400f, 0), Quaternion.identity);
+        GenBoss();
 
-        if (enemy_cnt % 5 == 0)
-        {
-            Instantiate(Item1Prefab, new Vector3(750f, -400f + 800f * Random.value, 0), Quaternion.identity);
-            //Instantiate(Item2Prefab, new Vector3(750f, -400f + 800f * Random.value, 0), Quaternion.identity);
-            //Instantiate(BombPrefab, new Vector3(750f, -400f + 800f * Random.value, 0), Quaternion.identity);
-        }
+        //　アイテム
+        GenItem();
 
-        if (enemy_cnt % 5 == 1)
-        {
-            Instantiate(Enemy2Prefab, new Vector3(750f, -400f + 800f * Random.value, 0), Quaternion.identity);
-            //Instantiate(Item3Prefab, new Vector3(750f, -400f + 800f * Random.value, 0), Quaternion.identity);
-        }
+        //　通常敵(0秒～)
+        GenEnemy();
 
-        if (enemy_cnt % 5 == 2)
-        {
-            //Instantiate(EnemyPrefab, new Vector3(750f, -400f + 800f * Random.value, 0), Quaternion.identity);
-        }
+        //　追加通常敵(90秒～)
+        if (enemy_cnt > 90) GenAdditionalEnemy();
 
-        if (enemy_cnt % 5 == 3)
-        {
-            Instantiate(Enemy3Prefab, new Vector3(750f, -400f + 800f * Random.value, 0), Quaternion.identity);
-        }
+        //　強化敵(150秒～)
+        if (enemy_cnt > 150) GenPowerEnemy();
 
-        if (enemy_cnt % 5 == 4)
-        {
-            Instantiate(EnemyPrefab, new Vector3(750f, -400f + 800f * Random.value, 0), Quaternion.identity);
-        }
-
-        if (enemy_cnt % 10 == 5)
-        {
-            Instantiate(GimmickPrefab, new Vector3(-700f + 1400f * Random.value, 400f, 0), Quaternion.identity);
-            //Instantiate(Enemy7Prefab, new Vector3(750f, -400f + 800f * Random.value, 0), Quaternion.identity);
-            //Instantiate(Enemy8Prefab, new Vector3(750f, -400f + 800f * Random.value, 0), Quaternion.identity);
-        }
+        //　火炎
+        GenGimmick();
 
         enemy_cnt++;
+    }
+
+    private void GenEnemy()
+    {
+        switch (enemy_cnt % 8)
+        {
+            case 0:
+                Instantiate(EnemyPrefab, new Vector3(750f, -400f + 800f * Random.value, 0), Quaternion.identity);
+                break;
+
+            case 1:
+                Instantiate(Enemy2Prefab, new Vector3(750f, -400f + 800f * Random.value, 0), Quaternion.identity);
+                break;
+
+            case 2:
+                break;
+
+            case 3:
+                if (enemy_cnt > 8) Instantiate(Enemy3Prefab, new Vector3(750f, -400f + 800f * Random.value, 0), Quaternion.identity);
+                else { Instantiate(EnemyPrefab, new Vector3(750f, -400f + 800f * Random.value, 0), Quaternion.identity); }
+                break;
+
+            case 4:
+                if (enemy_cnt > 8) Instantiate(Enemy4Prefab, new Vector3(750f, -400f + 800f * Random.value, 0), Quaternion.identity);
+                else { Instantiate(Enemy2Prefab, new Vector3(750f, -400f + 800f * Random.value, 0), Quaternion.identity); }
+                break;
+
+            case 5:
+                break;
+
+            case 6:
+                if (enemy_cnt > 16) Instantiate(Enemy5Prefab, new Vector3(-700f + 1400f * Random.value, 400f, 0), Quaternion.identity);
+                else { Instantiate(EnemyPrefab, new Vector3(750f, -400f + 800f * Random.value, 0), Quaternion.identity); }
+                break;
+
+            case 7:
+                if (enemy_cnt > 16) Instantiate(Enemy6Prefab, new Vector3(-700f + 1400f * Random.value, 400f, 0), Quaternion.identity);
+                else { Instantiate(Enemy2Prefab, new Vector3(750f, -400f + 800f * Random.value, 0), Quaternion.identity); }
+                break;
+
+            default:
+                break;
+        }
+    }
+
+    private void GenAdditionalEnemy()
+    {
+        switch (enemy_cnt % 10)
+        {
+            case 0:
+                Instantiate(Enemy5Prefab, new Vector3(-700f + 1400f * Random.value, 400f, 0), Quaternion.identity);
+                break;
+
+            case 1:
+                Instantiate(Enemy3Prefab, new Vector3(750f, -400f + 800f * Random.value, 0), Quaternion.identity);
+                break;
+
+            case 2:
+                Instantiate(EnemyPrefab, new Vector3(750f, -400f + 800f * Random.value, 0), Quaternion.identity);
+                Instantiate(EnemyPrefab, new Vector3(750f, -400f + 800f * Random.value, 0), Quaternion.identity);
+                break;
+
+            case 3:
+                Instantiate(Enemy3Prefab, new Vector3(750f, -400f + 800f * Random.value, 0), Quaternion.identity);
+                Instantiate(Enemy2Prefab, new Vector3(750f, -400f + 800f * Random.value, 0), Quaternion.identity);
+                break;
+
+            case 4:
+                Instantiate(Enemy4Prefab, new Vector3(750f, -400f + 800f * Random.value, 0), Quaternion.identity);
+                Instantiate(Enemy6Prefab, new Vector3(-700f + 1400f * Random.value, 400f, 0), Quaternion.identity);
+                break;
+
+            case 5:
+                break;
+
+            case 6:
+                Instantiate(Enemy7Prefab, new Vector3(750f, -400f + 800f * Random.value, 0), Quaternion.identity);
+                break;
+
+            case 7:
+                Instantiate(Enemy5Prefab, new Vector3(-700f + 1400f * Random.value, 400f, 0), Quaternion.identity);
+                Instantiate(Enemy6Prefab, new Vector3(-700f + 1400f * Random.value, 400f, 0), Quaternion.identity);
+                break;
+
+            case 8:
+                break;
+
+            case 9:
+                Instantiate(Enemy6Prefab, new Vector3(-700f + 1400f * Random.value, 400f, 0), Quaternion.identity);
+                Instantiate(Enemy2Prefab, new Vector3(750f, -400f + 800f * Random.value, 0), Quaternion.identity);
+                break;
+
+            default:
+                break;
+        }
+    }
+
+    private void GenPowerEnemy()
+    {
+        // 3秒置きに強化敵を交互に出現させる
+        if (enemy_cnt % 6 == 0)
+        {
+            Instantiate(Enemy7Prefab, new Vector3(750f, -400f + 800f * Random.value, 0), Quaternion.identity);
+        }
+
+        if (enemy_cnt % 6 == 3)
+        {
+            Instantiate(Enemy8Prefab, new Vector3(750f, -400f + 800f * Random.value, 0), Quaternion.identity);
+        }
+    }
+
+    private void GenBoss()
+    {
+        // 60秒、180秒、300秒にボスを出現させる
+        int[] gen = { 60, 180, 300 };
+        foreach (int cnt in gen)
+            if (enemy_cnt == cnt)
+            {
+                Instantiate(BossPrefab, new Vector3(600f, 400f, 0), Quaternion.identity);
+            }
+    }
+
+    private void GenItem()
+    {
+        // 開始3秒後から6秒おきにプレイヤー用弾丸を出現させる
+        if (enemy_cnt % 6 == 3) Instantiate(Item1Prefab, new Vector3(750f, -400f + 800f * Random.value, 0), Quaternion.identity);
+
+        // 開始8秒後から12秒おきにマウス用弾丸を出現させる
+        if (enemy_cnt % 12 == 8) Instantiate(Item2Prefab, new Vector3(750f, -400f + 800f * Random.value, 0), Quaternion.identity);
+
+        // 開始10秒後から15秒おきに回復を出現させる
+        if (enemy_cnt % 15 == 10) Instantiate(Item3Prefab, new Vector3(750f, -400f + 800f * Random.value, 0), Quaternion.identity);
+    }
+
+    private void GenGimmick()
+    {
+        // 開始5秒後から15秒おきに火炎か爆弾のどちらかを出現させる
+        if (enemy_cnt % 15 == 5)
+        {
+            float rand = Random.value;
+            if (rand > 0.5f)
+            {
+                Instantiate(GimmickPrefab, new Vector3(-700f + 1400f * Random.value, 400f, 0), Quaternion.identity);
+            }
+            else
+            {
+                Instantiate(BombPrefab, new Vector3(750f, -400f + 800f * Random.value, 0), Quaternion.identity);
+            }
+        }
     }
 
     // サウンドロード
@@ -155,14 +284,5 @@ public class GameController : MonoBehaviour
         Sound.LoadSE("shot", "Shot");               // 弾丸発射
         Sound.LoadSE("unableshot", "UnableShot");   // 発射できない
         Sound.LoadSE("flickshot", "FlickShot");     // マウス弾丸発射
-    }
-
-    // スコア加算
-    public void AddScore(int addscore)
-    {
-        // スコア加算
-        score += addscore;
-        // スコア表示更新
-        ScoreText.text = score.ToString();
     }
 }

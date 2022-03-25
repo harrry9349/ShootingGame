@@ -15,10 +15,6 @@ public class EnemyController : MonoBehaviour, IDamage
     [SerializeField]
     public GameObject EnemyBulletPrefab;
 
-    /// <summary>爆風プレハブ</summary>
-    [SerializeField]
-    public GameObject ExplodePrefab;
-
     /// <summary>体力</summary>
     [SerializeField]
     private int health;
@@ -43,9 +39,13 @@ public class EnemyController : MonoBehaviour, IDamage
     private Enemy enemy;
 
     /// <summary>スコアコントローラー</summary>
-    public GameObject scoreObject;
+    private GameObject scoreObject;
 
-    // Start is called before the first frame update
+    /// <summary>
+    /// 爆風アニメーション
+    /// </summary>
+    private Animator animator;
+
     private void Start()
     {
         moveSpeedX = moveSpeedX + 1f * Random.value;
@@ -70,8 +70,6 @@ public class EnemyController : MonoBehaviour, IDamage
     /// <param name="coll"></param>
     private void OnTriggerEnter2D(Collider2D coll)
     {
-        //Debug.Log(gameObject.name);
-        //Destroy(coll.gameObject);
         // 自分のオブジェクトのレイヤー情報読み込み
         string selflayername = LayerMask.LayerToName(gameObject.layer);
         // 接触したオブジェクトのレイヤー情報読み込み
@@ -118,8 +116,14 @@ public class EnemyController : MonoBehaviour, IDamage
         // サウンド
         Sound.PlaySE("Explode");
         // 爆風
-        Instantiate(ExplodePrefab, transform.position, Quaternion.identity);
+        this.animator = GetComponent<Animator>();
+        animator.SetTrigger("Explode");
         // オブジェクト破壊
+        Invoke("_Destroy", 0.2f);
+    }
+
+    private void _Destroy()
+    {
         Destroy(gameObject);
     }
 }

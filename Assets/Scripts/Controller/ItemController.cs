@@ -29,7 +29,6 @@ public class ItemController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D coll)
     {
-        Debug.Log(gameObject.name);
         Destroy(gameObject);
     }
 

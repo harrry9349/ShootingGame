@@ -2,7 +2,10 @@ using UnityEngine;
 
 public class EnemyBulletController : MonoBehaviour, IDamage
 {
+    [SerializeField]
     private float moveSpeedX;
+
+    [SerializeField]
     private float moveSpeedY;
 
     [SerializeField]
@@ -14,9 +17,9 @@ public class EnemyBulletController : MonoBehaviour, IDamage
     // Start is called before the first frame update
     private void Start()
     {
-        // 弾のスピードはX,Yともに-1f～1fの間
-        this.moveSpeedX = 2f * Random.value - 1f;
-        this.moveSpeedY = 2f * Random.value - 1f;
+        // 弾のスピードはX,Yともに-10f～10fの間
+        this.moveSpeedX = moveSpeedX * Random.value - 10f;
+        this.moveSpeedY = moveSpeedY * Random.value - 10f;
         Destroy(gameObject, deleteTime);
     }
 

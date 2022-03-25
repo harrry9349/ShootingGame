@@ -44,8 +44,6 @@ public class BombController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D coll)
     {
-        //Debug.Log(gameObject.name);
-        //Destroy(coll.gameObject);
         // 自分のオブジェクトのレイヤー情報読み込み
         string selflayername = LayerMask.LayerToName(gameObject.layer);
         // 接触したオブジェクトのレイヤー情報読み込み

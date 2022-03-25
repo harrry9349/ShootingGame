@@ -24,10 +24,6 @@ public class BossController : MonoBehaviour, IDamage
     [SerializeField]
     public GameObject EnemyPowerBulletPrefab;
 
-    /// <summary>爆風プレハブ</summary>
-    [SerializeField]
-    public GameObject ExplodePrefab;
-
     /// <summary>体力</summary>
     [SerializeField]
     private int health;
@@ -49,15 +45,24 @@ public class BossController : MonoBehaviour, IDamage
     private int enemyPattern;
 
     /// <summary>スコアコントローラー</summary>
-    public GameObject scoreObject;
+    private GameObject scoreObject;
 
     /// <summary>敵クラス</summary>
     private Enemy enemy;
 
     /// <summary>移動パターン</summary>
-    public int transformPattern;
+    private int transformPattern;
 
+    /// <summary>
+    /// 爆風アニメーション
+    /// </summary>
+    private Animator animator;
+
+    /// <summary>
+    /// 移動速度
+    /// </summary>
     private float transformX;
+
     private float transformY;
 
     // Start is called before the first frame update
@@ -81,8 +86,6 @@ public class BossController : MonoBehaviour, IDamage
 
     private void OnTriggerEnter2D(Collider2D coll)
     {
-        //Debug.Log(gameObject.name);
-        //Destroy(coll.gameObject);
         // 自分のオブジェクトのレイヤー情報読み込み
         string selflayername = LayerMask.LayerToName(gameObject.layer);
         // 接触したオブジェクトのレイヤー情報読み込み
@@ -116,15 +119,16 @@ public class BossController : MonoBehaviour, IDamage
         // サウンド
         Sound.PlaySE("Explode");
         // 爆風
-        Instantiate(ExplodePrefab, transform.position, Quaternion.identity);
+        this.animator = GetComponent<Animator>();
+        animator.SetTrigger("Explode");
         // オブジェクト破壊
-        Destroy(gameObject);
+        Invoke("_Destroy", 0.2f);
     }
 
     private void SwitchTransform()
     {
-        float switchMoveSpeedX = 0.4f;
-        float switchMoveSpeedY = 0.4f;
+        float switchMoveSpeedX = 4f;
+        float switchMoveSpeedY = 4f;
         switch (transformPattern)
         {
             case 0:
@@ -155,5 +159,10 @@ public class BossController : MonoBehaviour, IDamage
                 transformPattern = 0;
                 break;
         }
+    }
+
+    private void _Destroy()
+    {
+        Destroy(gameObject);
     }
 }

@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8776237797138379008}
   - component: {fileID: 2946806538108724769}
   - component: {fileID: 4258561035554980469}
+  - component: {fileID: 6142941209284194064}
   m_Layer: 9
   m_Name: Enemy4prefab
   m_TagString: Untagged
@@ -141,13 +142,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89016d01fc9f07b459de62e3b1f7afb4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeedX: 0.5
+  moveSpeedX: 5
   moveSpeedY: 0
   EnemyBulletPrefab: {fileID: 6325367258927840494, guid: cea3b706450039e43a7c0d5b05dd85d1, type: 3}
-  ExplodePrefab: {fileID: 1456766682596502457, guid: 74adcc265efda4a47a1155c9823f9e2f, type: 3}
   health: 200
   Damage: 30
   bullets: 3
   enemyPattern: 3
   score: 300
   scoreObject: {fileID: 0}
+  animator: {fileID: 0}
+--- !u!95 &6142941209284194064
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 753178598116491358}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 3f6a8712bedd98f4f84c461e7a0e3b98, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

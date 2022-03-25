@@ -105,7 +105,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   deleteTime: 1
-  speed: 5
+  speed: 30
   ExplodePrefab: {fileID: 1456766682596502457, guid: 74adcc265efda4a47a1155c9823f9e2f, type: 3}
 --- !u!50 &1534216239238531405
 Rigidbody2D:
@@ -118,7 +118,7 @@ Rigidbody2D:
   m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 1
+  m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05

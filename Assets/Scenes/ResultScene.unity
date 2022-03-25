@@ -158,8 +158,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -5.6981, y: 54.589}
-  m_SizeDelta: {x: 1624.3187, y: 807.78}
+  m_AnchoredPosition: {x: 0.000061035, y: 0}
+  m_SizeDelta: {x: 1920, y: 1080}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &3400514
 MonoBehaviour:
@@ -211,8 +211,9 @@ GameObject:
   - component: {fileID: 5131731}
   - component: {fileID: 5131730}
   - component: {fileID: 5131729}
+  - component: {fileID: 5131732}
   m_Layer: 5
-  m_Name: EnemyCanvas5
+  m_Name: EnemyCanvas4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -234,12 +235,12 @@ RectTransform:
   - {fileID: 1094273486}
   - {fileID: 13734995}
   m_Father: {fileID: 1173155760}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 265.292, y: 131.0916}
-  m_SizeDelta: {x: -673.6587, y: -529.8603}
+  m_AnchoredPosition: {x: 351.26, y: 171.29883}
+  m_SizeDelta: {x: -942.52, y: -641.4406}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &5131729
 MonoBehaviour:
@@ -302,6 +303,21 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!114 &5131732
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5131727}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75c0d7cf91711654c943b521c3d00edb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SAVE_SCORE: {fileID: 11400000, guid: 44d4df754c8ddc145ad5e24107d69c5a, type: 2}
+  scoreText: {fileID: 13734996}
+  pattern: 4
 --- !u!1 &13734994
 GameObject:
   m_ObjectHideFlags: 0
@@ -314,7 +330,7 @@ GameObject:
   - component: {fileID: 13734997}
   - component: {fileID: 13734996}
   m_Layer: 5
-  m_Name: BrokenEnemyText1
+  m_Name: BrokenEnemyText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -337,8 +353,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 87.04998, y: -7.2498}
-  m_SizeDelta: {x: 230.86, y: 108.51}
+  m_AnchoredPosition: {x: 140.18, y: -8.9596}
+  m_SizeDelta: {x: 337.12, y: 134.11}
   m_Pivot: {x: 0.5, y: 0.4331834}
 --- !u!114 &13734996
 MonoBehaviour:
@@ -417,8 +433,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 323.53, y: 32.56501}
-  m_SizeDelta: {x: 647.06, y: 110.02}
+  m_AnchoredPosition: {x: 187.57, y: 0.00024319}
+  m_SizeDelta: {x: 346.29, y: 79.699}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &40406890
 MonoBehaviour:
@@ -442,7 +458,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 80
+    m_FontSize: 40
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 2
@@ -714,7 +730,7 @@ GameObject:
   - component: {fileID: 204548755}
   - component: {fileID: 204548754}
   m_Layer: 5
-  m_Name: BrokenEnemyText1
+  m_Name: BrokenEnemyText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -737,8 +753,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 87.04998, y: -7.2501526}
-  m_SizeDelta: {x: 230.86, y: 108.51}
+  m_AnchoredPosition: {x: 140.18, y: -8.9612}
+  m_SizeDelta: {x: 337.12, y: 134.11}
   m_Pivot: {x: 0.5, y: 0.4331834}
 --- !u!114 &204548754
 MonoBehaviour:
@@ -874,7 +890,7 @@ GameObject:
   - component: {fileID: 382961591}
   - component: {fileID: 382961590}
   m_Layer: 5
-  m_Name: BrokenEnemyText1
+  m_Name: BrokenEnemyText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -897,8 +913,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 87.04998, y: -7.2501526}
-  m_SizeDelta: {x: 230.86, y: 108.51}
+  m_AnchoredPosition: {x: 140.18, y: -8.959791}
+  m_SizeDelta: {x: 337.12, y: 134.11}
   m_Pivot: {x: 0.5, y: 0.4331834}
 --- !u!114 &382961590
 MonoBehaviour:
@@ -977,8 +993,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -148.08997, y: -0.00015258789}
-  m_SizeDelta: {x: -296.18, y: 0}
+  m_AnchoredPosition: {x: -228.281, y: -0.00015258789}
+  m_SizeDelta: {x: -456.562, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &500264519
 MonoBehaviour:
@@ -1030,8 +1046,9 @@ GameObject:
   - component: {fileID: 558205096}
   - component: {fileID: 558205095}
   - component: {fileID: 558205094}
+  - component: {fileID: 558205097}
   m_Layer: 5
-  m_Name: EnemyCanvas2
+  m_Name: EnemyCanvas3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1053,12 +1070,12 @@ RectTransform:
   - {fileID: 778701624}
   - {fileID: 703564162}
   m_Father: {fileID: 1173155760}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -257.35797, y: 131.09009}
-  m_SizeDelta: {x: -685.4359, y: -529.8633}
+  m_AnchoredPosition: {x: -350.87, y: 168}
+  m_SizeDelta: {x: -938.26, y: -641.4406}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &558205094
 MonoBehaviour:
@@ -1121,6 +1138,21 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!114 &558205097
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 558205092}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75c0d7cf91711654c943b521c3d00edb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SAVE_SCORE: {fileID: 11400000, guid: 44d4df754c8ddc145ad5e24107d69c5a, type: 2}
+  scoreText: {fileID: 703564163}
+  pattern: 3
 --- !u!1 &558878528
 GameObject:
   m_ObjectHideFlags: 0
@@ -1156,8 +1188,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -148.08997, y: -0.00015258789}
-  m_SizeDelta: {x: -296.18, y: 0}
+  m_AnchoredPosition: {x: -234.74796, y: -0.00015258789}
+  m_SizeDelta: {x: -469.496, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &558878530
 MonoBehaviour:
@@ -1316,8 +1348,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -148.08997, y: -0.00015258789}
-  m_SizeDelta: {x: -296.18, y: 0}
+  m_AnchoredPosition: {x: -279, y: 0}
+  m_SizeDelta: {x: -598.8364, y: -10.3472}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &583417201
 MonoBehaviour:
@@ -1392,8 +1424,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -148.08997, y: -0.00015258789}
-  m_SizeDelta: {x: -296.18, y: 0}
+  m_AnchoredPosition: {x: -230.8678, y: -0.00015258789}
+  m_SizeDelta: {x: -461.7356, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &596507489
 MonoBehaviour:
@@ -1470,8 +1502,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 798.51, y: -444.65}
-  m_SizeDelta: {x: -1597, y: -889.3}
+  m_AnchoredPosition: {x: 825.78, y: -475.14}
+  m_SizeDelta: {x: -1739, y: -981.94}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &616030844
 MonoBehaviour:
@@ -1546,6 +1578,7 @@ GameObject:
   - component: {fileID: 691096119}
   - component: {fileID: 691096118}
   - component: {fileID: 691096117}
+  - component: {fileID: 691096120}
   m_Layer: 5
   m_Name: EnemyCanvas6
   m_TagString: Untagged
@@ -1573,8 +1606,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 265.292, y: 13.4103}
-  m_SizeDelta: {x: -673.6587, y: -529.8603}
+  m_AnchoredPosition: {x: 350.13, y: 27}
+  m_SizeDelta: {x: -940.26, y: -643.1991}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &691096117
 MonoBehaviour:
@@ -1637,6 +1670,21 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!114 &691096120
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 691096115}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75c0d7cf91711654c943b521c3d00edb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SAVE_SCORE: {fileID: 11400000, guid: 44d4df754c8ddc145ad5e24107d69c5a, type: 2}
+  scoreText: {fileID: 1352612567}
+  pattern: 6
 --- !u!1 &703564161
 GameObject:
   m_ObjectHideFlags: 0
@@ -1649,7 +1697,7 @@ GameObject:
   - component: {fileID: 703564164}
   - component: {fileID: 703564163}
   m_Layer: 5
-  m_Name: BrokenEnemyText1
+  m_Name: BrokenEnemyText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1672,8 +1720,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 87.04998, y: -7.2501526}
-  m_SizeDelta: {x: 230.86, y: 108.51}
+  m_AnchoredPosition: {x: 140.18, y: -8.9598}
+  m_SizeDelta: {x: 337.12, y: 134.11}
   m_Pivot: {x: 0.5, y: 0.4331834}
 --- !u!114 &703564163
 MonoBehaviour:
@@ -1752,8 +1800,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 323.53, y: -55.010006}
-  m_SizeDelta: {x: 647.06, y: 65.13}
+  m_AnchoredPosition: {x: 460.36, y: -0.00027084}
+  m_SizeDelta: {x: 199.28, y: 79.698}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &709180458
 MonoBehaviour:
@@ -1777,7 +1825,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 40
+    m_FontSize: 20
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 2
@@ -1788,7 +1836,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: New Record!
+  m_Text: 
 --- !u!222 &709180459
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1832,8 +1880,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -148.08997, y: -0.00015258789}
-  m_SizeDelta: {x: -296.18, y: 0}
+  m_AnchoredPosition: {x: -234.74796, y: -0.00015258789}
+  m_SizeDelta: {x: -469.4959, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &709636743
 MonoBehaviour:
@@ -1885,6 +1933,7 @@ GameObject:
   - component: {fileID: 750936937}
   - component: {fileID: 750936936}
   - component: {fileID: 750936935}
+  - component: {fileID: 750936938}
   m_Layer: 5
   m_Name: EnemyCanvas1
   m_TagString: Untagged
@@ -1912,8 +1961,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -256.17426, y: 246.6732}
-  m_SizeDelta: {x: -683.0685, y: -529.3464}
+  m_AnchoredPosition: {x: -350, y: 307.99997}
+  m_SizeDelta: {x: -940, y: -636.8629}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &750936935
 MonoBehaviour:
@@ -1976,6 +2025,21 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!114 &750936938
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 750936933}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75c0d7cf91711654c943b521c3d00edb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SAVE_SCORE: {fileID: 11400000, guid: 44d4df754c8ddc145ad5e24107d69c5a, type: 2}
+  scoreText: {fileID: 1957936782}
+  pattern: 1
 --- !u!1 &778701623
 GameObject:
   m_ObjectHideFlags: 0
@@ -2068,8 +2132,9 @@ GameObject:
   - component: {fileID: 855556306}
   - component: {fileID: 855556305}
   - component: {fileID: 855556304}
+  - component: {fileID: 855556307}
   m_Layer: 5
-  m_Name: EnemyCanvas3
+  m_Name: EnemyCanvas5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2091,12 +2156,12 @@ RectTransform:
   - {fileID: 1353381135}
   - {fileID: 1013251526}
   m_Father: {fileID: 1173155760}
-  m_RootOrder: 2
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -257.358, y: 13.4103}
-  m_SizeDelta: {x: -685.4359, y: -529.8603}
+  m_AnchoredPosition: {x: -352, y: 26.978699}
+  m_SizeDelta: {x: -936, y: -643.2417}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &855556304
 MonoBehaviour:
@@ -2159,6 +2224,21 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!114 &855556307
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 855556302}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75c0d7cf91711654c943b521c3d00edb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SAVE_SCORE: {fileID: 11400000, guid: 44d4df754c8ddc145ad5e24107d69c5a, type: 2}
+  scoreText: {fileID: 1013251527}
+  pattern: 5
 --- !u!1 &956573151
 GameObject:
   m_ObjectHideFlags: 0
@@ -2171,8 +2251,9 @@ GameObject:
   - component: {fileID: 956573155}
   - component: {fileID: 956573154}
   - component: {fileID: 956573153}
+  - component: {fileID: 956573156}
   m_Layer: 5
-  m_Name: EnemyCanvas4
+  m_Name: EnemyCanvas2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2194,12 +2275,12 @@ RectTransform:
   - {fileID: 130903547}
   - {fileID: 204548753}
   m_Father: {fileID: 1173155760}
-  m_RootOrder: 3
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 265.292, y: 246.67516}
-  m_SizeDelta: {x: -673.6602, y: -529.3503}
+  m_AnchoredPosition: {x: 350, y: 308}
+  m_SizeDelta: {x: -940, y: -636.8629}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &956573153
 MonoBehaviour:
@@ -2262,6 +2343,21 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!114 &956573156
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 956573151}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75c0d7cf91711654c943b521c3d00edb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SAVE_SCORE: {fileID: 11400000, guid: 44d4df754c8ddc145ad5e24107d69c5a, type: 2}
+  scoreText: {fileID: 204548754}
+  pattern: 2
 --- !u!1 &1013251525
 GameObject:
   m_ObjectHideFlags: 0
@@ -2274,7 +2370,7 @@ GameObject:
   - component: {fileID: 1013251528}
   - component: {fileID: 1013251527}
   m_Layer: 5
-  m_Name: BrokenEnemyText1
+  m_Name: BrokenEnemyText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2297,8 +2393,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 87.04998, y: -7.2498}
-  m_SizeDelta: {x: 230.86, y: 108.51}
+  m_AnchoredPosition: {x: 140.18, y: -8.9583}
+  m_SizeDelta: {x: 337.12, y: 134.09}
   m_Pivot: {x: 0.5, y: 0.4331834}
 --- !u!114 &1013251527
 MonoBehaviour:
@@ -2377,8 +2473,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.010051, y: -0.00018024}
-  m_SizeDelta: {x: 1092.2, y: 98.644}
+  m_AnchoredPosition: {x: 0.00016785, y: -0.0000052452}
+  m_SizeDelta: {x: 490.99, y: 108.58}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1047354718
 MonoBehaviour:
@@ -2402,7 +2498,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 80
+    m_FontSize: 60
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 2
@@ -2514,6 +2610,7 @@ GameObject:
   - component: {fileID: 1117260704}
   - component: {fileID: 1117260703}
   - component: {fileID: 1117260702}
+  - component: {fileID: 1117260705}
   m_Layer: 5
   m_Name: EnemyCanvas8
   m_TagString: Untagged
@@ -2541,8 +2638,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 265.292, y: -107.65872}
-  m_SizeDelta: {x: -673.6602, y: -529.3503}
+  m_AnchoredPosition: {x: 351.13, y: -114}
+  m_SizeDelta: {x: -942.26, y: -645.297}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1117260702
 MonoBehaviour:
@@ -2605,6 +2702,21 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!114 &1117260705
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1117260700}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75c0d7cf91711654c943b521c3d00edb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SAVE_SCORE: {fileID: 11400000, guid: 44d4df754c8ddc145ad5e24107d69c5a, type: 2}
+  scoreText: {fileID: 382961590}
+  pattern: 8
 --- !u!1 &1146254640
 GameObject:
   m_ObjectHideFlags: 0
@@ -2640,8 +2752,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 3.2874146}
+  m_SizeDelta: {x: 0, y: 6.5748}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1146254642
 MonoBehaviour:
@@ -2716,10 +2828,10 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 750936934}
-  - {fileID: 558205093}
-  - {fileID: 855556303}
   - {fileID: 956573152}
+  - {fileID: 558205093}
   - {fileID: 5131728}
+  - {fileID: 855556303}
   - {fileID: 691096116}
   - {fileID: 2137398209}
   - {fileID: 1117260701}
@@ -2729,8 +2841,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -11.458984, y: 23.005188}
-  m_SizeDelta: {x: -827.8, y: -453.4685}
+  m_AnchoredPosition: {x: 0, y: 17.4951}
+  m_SizeDelta: {x: -400, y: -306.6423}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1173155761
 MonoBehaviour:
@@ -2782,7 +2894,7 @@ GameObject:
   - component: {fileID: 1216137823}
   - component: {fileID: 1216137822}
   m_Layer: 5
-  m_Name: BrokenEnemyText1
+  m_Name: BrokenEnemyText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2805,8 +2917,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 87.04998, y: -7.2498}
-  m_SizeDelta: {x: 230.86, y: 108.51}
+  m_AnchoredPosition: {x: 140.18, y: -8.9583}
+  m_SizeDelta: {x: 337.12, y: 134.09}
   m_Pivot: {x: 0.5, y: 0.4331834}
 --- !u!114 &1216137822
 MonoBehaviour:
@@ -2861,6 +2973,7 @@ GameObject:
   - component: {fileID: 1268823530}
   - component: {fileID: 1268823532}
   - component: {fileID: 1268823531}
+  - component: {fileID: 1268823533}
   m_Layer: 5
   m_Name: TotalScorePanel
   m_TagString: Untagged
@@ -2888,8 +3001,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -10.035828, y: -436.87573}
-  m_SizeDelta: {x: -625.8642, y: -904.8499}
+  m_AnchoredPosition: {x: 0, y: -484.21924}
+  m_SizeDelta: {x: -800, y: -1000.0951}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1268823531
 MonoBehaviour:
@@ -2929,6 +3042,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1268823529}
   m_CullTransparentMesh: 1
+--- !u!114 &1268823533
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1268823529}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2cd2914dacac49647bd639d5d3b9d464, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SAVE_SCORE: {fileID: 11400000, guid: 44d4df754c8ddc145ad5e24107d69c5a, type: 2}
+  scoreText: {fileID: 40406890}
+  HISCORE: {fileID: 11400000, guid: fff9a901bbf7e324aa94a29699e7f5db, type: 2}
+  newrecordText: {fileID: 709180458}
 --- !u!1 &1272330591
 GameObject:
   m_ObjectHideFlags: 0
@@ -2964,8 +3093,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -148.08997, y: -0.00015258789}
-  m_SizeDelta: {x: -296.18, y: 0}
+  m_AnchoredPosition: {x: -229.57446, y: -0.000030517578}
+  m_SizeDelta: {x: -459.1488, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1272330593
 MonoBehaviour:
@@ -3135,7 +3264,7 @@ GameObject:
   - component: {fileID: 1352612568}
   - component: {fileID: 1352612567}
   m_Layer: 5
-  m_Name: BrokenEnemyText1
+  m_Name: BrokenEnemyText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3158,8 +3287,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 87.04998, y: -7.2501526}
-  m_SizeDelta: {x: 230.86, y: 108.51}
+  m_AnchoredPosition: {x: 140.18, y: -8.9602}
+  m_SizeDelta: {x: 337.12, y: 134.09}
   m_Pivot: {x: 0.5, y: 0.4331834}
 --- !u!114 &1352612567
 MonoBehaviour:
@@ -3318,8 +3447,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -299.62, y: 32.565}
-  m_SizeDelta: {x: 694.8916, y: 110.02}
+  m_AnchoredPosition: {x: -238.11966, y: -0.000031471}
+  m_SizeDelta: {x: 505.1013, y: 79.698}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1430557154
 MonoBehaviour:
@@ -3466,8 +3595,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -11.457825, y: 409.156}
-  m_SizeDelta: {x: -827.8049, y: -981.3552}
+  m_AnchoredPosition: {x: 0, y: 495.28}
+  m_SizeDelta: {x: -800, y: -990.56}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1627889696
 MonoBehaviour:
@@ -3542,8 +3671,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -148.08997, y: -0.00015258789}
-  m_SizeDelta: {x: -296.18, y: 0}
+  m_AnchoredPosition: {x: -232.1612, y: -0.00015258789}
+  m_SizeDelta: {x: -464.3224, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1710873703
 MonoBehaviour:
@@ -3618,8 +3747,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -148.08997, y: -0.00015258789}
-  m_SizeDelta: {x: -296.18, y: 0}
+  m_AnchoredPosition: {x: -229.57434, y: -0.00015258789}
+  m_SizeDelta: {x: -459.1488, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1743824091
 MonoBehaviour:
@@ -3671,7 +3800,7 @@ GameObject:
   - component: {fileID: 1799984753}
   - component: {fileID: 1799984752}
   m_Layer: 5
-  m_Name: BrokenEnemyText1
+  m_Name: BrokenEnemyText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3911,6 +4040,7 @@ GameObject:
   - component: {fileID: 1838724881}
   - component: {fileID: 1838724880}
   - component: {fileID: 1838724879}
+  - component: {fileID: 1838724882}
   m_Layer: 5
   m_Name: EnemyCanvas9
   m_TagString: Untagged
@@ -3938,8 +4068,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -245.41}
-  m_SizeDelta: {x: -652.9924, y: -490.82}
+  m_AnchoredPosition: {x: 0, y: -279.8851}
+  m_SizeDelta: {x: -727.0868, y: -591.5491}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1838724879
 MonoBehaviour:
@@ -4002,6 +4132,21 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!114 &1838724882
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1838724877}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75c0d7cf91711654c943b521c3d00edb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SAVE_SCORE: {fileID: 11400000, guid: 44d4df754c8ddc145ad5e24107d69c5a, type: 2}
+  scoreText: {fileID: 1799984752}
+  pattern: 9
 --- !u!1 &1906179317
 GameObject:
   m_ObjectHideFlags: 0
@@ -4037,10 +4182,10 @@ RectTransform:
   m_Father: {fileID: 616030843}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.00001955, y: -0.000002861}
-  m_SizeDelta: {x: 193.0376, y: 89.4675}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1906179319
 MonoBehaviour:
@@ -4148,7 +4293,7 @@ GameObject:
   - component: {fileID: 1957936783}
   - component: {fileID: 1957936782}
   m_Layer: 5
-  m_Name: BrokenEnemyText1
+  m_Name: BrokenEnemyText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4171,8 +4316,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 87.04998, y: -7.2501526}
-  m_SizeDelta: {x: 230.86, y: 108.51}
+  m_AnchoredPosition: {x: 140.18, y: -8.9612}
+  m_SizeDelta: {x: 337.12, y: 134.11}
   m_Pivot: {x: 0.5, y: 0.4331834}
 --- !u!114 &1957936782
 MonoBehaviour:
@@ -4251,8 +4396,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -148.08997, y: -0.00015258789}
-  m_SizeDelta: {x: -296.18, y: 0}
+  m_AnchoredPosition: {x: -236.04135, y: 0}
+  m_SizeDelta: {x: -472.0828, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2099260181
 MonoBehaviour:
@@ -4304,6 +4449,7 @@ GameObject:
   - component: {fileID: 2137398212}
   - component: {fileID: 2137398211}
   - component: {fileID: 2137398210}
+  - component: {fileID: 2137398213}
   m_Layer: 5
   m_Name: EnemyCanvas7
   m_TagString: Untagged
@@ -4331,8 +4477,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -257.35797, y: -107.40765}
-  m_SizeDelta: {x: -685.4359, y: -529.8603}
+  m_AnchoredPosition: {x: -351, y: -113.958466}
+  m_SizeDelta: {x: -938, y: -645.3802}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2137398210
 MonoBehaviour:
@@ -4395,3 +4541,18 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!114 &2137398213
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2137398208}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75c0d7cf91711654c943b521c3d00edb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SAVE_SCORE: {fileID: 11400000, guid: 44d4df754c8ddc145ad5e24107d69c5a, type: 2}
+  scoreText: {fileID: 1216137822}
+  pattern: 7
