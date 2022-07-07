@@ -276,7 +276,7 @@ public class GameController : MonoBehaviour
     // サウンドロード
     private void LoadSound()
     {
-        Sound.LoadBGM("ingame", "Thunderbolt");     // インゲーム画面の音楽
+        Sound.LoadBGM("ingame", "The_End_of_Destruction");     // インゲーム画面の音楽
         Sound.LoadSE("pop", "Pop");                 // アイテム取得
         Sound.LoadSE("heal", "heal");               // 回復
         Sound.LoadSE("damage", "damage");           // ダメージ
@@ -284,5 +284,6 @@ public class GameController : MonoBehaviour
         Sound.LoadSE("shot", "Shot");               // 弾丸発射
         Sound.LoadSE("unableshot", "UnableShot");   // 発射できない
         Sound.LoadSE("flickshot", "FlickShot");     // マウス弾丸発射
+        Sound.LoadBGM("danger", "danger");     // インゲーム画面の音楽
     }
 }

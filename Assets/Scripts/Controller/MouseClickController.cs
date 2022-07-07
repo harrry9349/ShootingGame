@@ -29,29 +29,29 @@ public class MouseClickController : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0))
-        {
-            if (remainsFlickshot > 0)
-            {
-                // サウンド
-                Sound.PlaySE("Explode");
-                Vector3 mousePos = Input.mousePosition;
-                mousePos.z = 10.0f;
-                Vector3 objPos = Camera.main.ScreenToWorldPoint(mousePos);
+        //if (Input.GetMouseButtonDown(0))
+        //{
+        //    if (remainsFlickshot > 0)
+        //    {
+        //        // サウンド
+        //        Sound.PlaySE("Explode");
+        //        Vector3 mousePos = Input.mousePosition;
+        //        mousePos.z = 10.0f;
+        //        Vector3 objPos = Camera.main.ScreenToWorldPoint(mousePos);
 
-                // 弾生成
-                Instantiate(FlickShotPrefab, objPos, Quaternion.identity);
+        //        // 弾生成
+        //        Instantiate(FlickShotPrefab, objPos, Quaternion.identity);
 
-                // フリックショット用弾丸の残り数更新
-                remainsFlickshot--;
-                BulletRemainsText.text = remainsFlickshot.ToString();
-            }
-            else
-            {
-                // サウンドのみ再生
-                Sound.PlaySE("unableshot");
-            }
-        }
+        //        // フリックショット用弾丸の残り数更新
+        //        remainsFlickshot--;
+        //        BulletRemainsText.text = remainsFlickshot.ToString();
+        //    }
+        //    else
+        //    {
+        //        // サウンドのみ再生
+        //        Sound.PlaySE("unableshot");
+        //    }
+        //}
     }
 
     public void AddAmmo(int ammo)
