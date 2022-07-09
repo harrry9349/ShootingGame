@@ -3,8 +3,7 @@ using UnityEngine;
 public class BulletDestroyer : MonoBehaviour
 {
     /// <summary>¶¬‚³‚ê‚Ä‚©‚çíœ‚Ü‚Å‚Ì•b”</summary>
-    [SerializeField]
-    private float deleteSeconds;
+    public float deleteSeconds;
 
     public void Start()
     {

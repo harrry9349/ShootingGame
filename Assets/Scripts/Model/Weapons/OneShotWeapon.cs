@@ -4,53 +4,71 @@ using UnityEngine;
 
 public class OneShotWeapon : MonoBehaviour, IWeapon
 {
-    private readonly IntReactiveProperty power = new(100);
-    private readonly IntReactiveProperty interval = new(100);
-    private readonly IntReactiveProperty maxAmmo = new(100);
-    private readonly IntReactiveProperty sustain = new(100);
-    private readonly IntReactiveProperty currentAmmo = new(100);
-    private readonly IntReactiveProperty loadingAmmo = new(100);
-    private readonly IntReactiveProperty reloadTime = new(100);
+    private readonly IntReactiveProperty power = new(0);
+    private readonly IntReactiveProperty interval = new(0);
+    private readonly IntReactiveProperty maxAmmo = new(0);
+    private readonly FloatReactiveProperty sustain = new(0);
+    private readonly IntReactiveProperty currentAmmo = new(0);
+    private readonly IntReactiveProperty loadingAmmo = new(0);
+    private readonly FloatReactiveProperty reloadTime = new(0);
 
+    private bool shotAble = true;
     public ReadOnlyReactiveProperty<int> Power => power.ToReadOnlyReactiveProperty();
     public ReadOnlyReactiveProperty<int> Interval => interval.ToReadOnlyReactiveProperty();
     public ReadOnlyReactiveProperty<int> MaxAmmo => maxAmmo.ToReadOnlyReactiveProperty();
-    public ReadOnlyReactiveProperty<int> Sustain => sustain.ToReadOnlyReactiveProperty();
+    public ReadOnlyReactiveProperty<float> Sustain => sustain.ToReadOnlyReactiveProperty();
     public ReadOnlyReactiveProperty<int> CurrentAmmo => currentAmmo.ToReadOnlyReactiveProperty();
     public ReadOnlyReactiveProperty<int> LoadingAmmo => loadingAmmo.ToReadOnlyReactiveProperty();
-    public ReadOnlyReactiveProperty<int> ReloadTime => reloadTime.ToReadOnlyReactiveProperty();
+    public ReadOnlyReactiveProperty<float> ReloadTime => reloadTime.ToReadOnlyReactiveProperty();
 
-    public OneShotWeapon(int power, int interval, int maxAmmo, int sustain, int currentAmmo, int loadingAmmo, int reloadTime)
+    public OneShotWeapon(WeaponScriptableObject weaponData)
     {
-        this.power.Value = power;
-        this.interval.Value = interval;
-        this.maxAmmo.Value = maxAmmo;
-        this.sustain.Value = sustain;
-        this.currentAmmo.Value = currentAmmo;
-        this.loadingAmmo.Value = loadingAmmo;
-        this.reloadTime.Value = reloadTime;
-
-        IDisposable subscriptionPower = Power.Subscribe(x => Debug.Log(x));
-        IDisposable subscriptionInterval = Interval.Subscribe(x => Debug.Log(x));
-        IDisposable subscriptionMaxAmmo = MaxAmmo.Subscribe(x => Debug.Log(x));
-        IDisposable subscriptionSustain = Sustain.Subscribe(x => Debug.Log(x));
-        IDisposable subscriptionCurrentAmmo = CurrentAmmo.Subscribe(x => Debug.Log(x));
-        IDisposable subscriptionLoadingAmmo = LoadingAmmo.Subscribe(x => Debug.Log(x));
-        IDisposable subscriptionReloadTime = ReloadTime.Subscribe(x => Debug.Log(x));
+        this.power.Value = weaponData.power;
+        this.interval.Value = weaponData.interval;
+        this.maxAmmo.Value = weaponData.maxAmmo;
+        this.sustain.Value = weaponData.sustain;
+        this.currentAmmo.Value = weaponData.currentAmmo;
+        this.loadingAmmo.Value = weaponData.loadingAmmo;
+        this.reloadTime.Value = weaponData.reloadTime;
     }
 
-    public void Fire()
+    public bool Fire()
     {
+        if (loadingAmmo.Value == 0 || !shotAble)
+        {
+            return false;
+        }
+        shotAble = false;
         Debug.Log("OneShotWeapon:Fire");
         loadingAmmo.Value -= 1;
+        Observable.TimerFrame(interval.Value)
+        .Subscribe(_ => shotAble = true);
+        return true;
     }
 
     public void Reload()
     {
+        if (currentAmmo.Value == 0) return;
+        shotAble = false;
+        Observable.Timer(TimeSpan.FromSeconds(reloadTime.Value))
+        .Subscribe(_ => _Reload());
+    }
+
+    private void _Reload()
+    {
         Debug.Log("OneShotWeapon:Reload");
-        currentAmmo.Value -= maxAmmo.Value;
-        currentAmmo.Value += loadingAmmo.Value;
-        loadingAmmo.Value = maxAmmo.Value;
+        if (currentAmmo.Value + loadingAmmo.Value >= maxAmmo.Value)
+        {
+            currentAmmo.Value -= maxAmmo.Value;
+            currentAmmo.Value += loadingAmmo.Value;
+            loadingAmmo.Value = maxAmmo.Value;
+        }
+        else
+        {
+            loadingAmmo.Value += currentAmmo.Value;
+            currentAmmo.Value = 0;
+        }
+        shotAble = true;
     }
 
     public void AddPower(int power) => this.power.Value += power;

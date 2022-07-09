@@ -1,6 +1,12 @@
+using UniRx;
+
 public interface IWeapon
 {
-    void Fire();
+    public ReadOnlyReactiveProperty<int> LoadingAmmo { get; }
+    public ReadOnlyReactiveProperty<int> CurrentAmmo { get; }
+    public ReadOnlyReactiveProperty<float> Sustain { get; }
+
+    bool Fire();
 
     void Reload();
 

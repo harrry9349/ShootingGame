@@ -9,6 +9,8 @@ namespace Assets.Scripts.Model.Players
     {
         public event Action Fired;
 
+        //public event Action AltFired;
+
         private readonly float LimitUP = 400f;
         private readonly float LimitLeft = -720f;
         private readonly float LimitDown = -400f;
@@ -20,8 +22,11 @@ namespace Assets.Scripts.Model.Players
 
         private int moveMaxSpeedY;
 
-        private IWeapon mainWeapon;
-        private IWeapon subWeapon;
+        public IWeapon mainWeapon;
+        public IWeapon subWeapon;
+
+        [SerializeField]
+        public WeaponScriptableObject weaponData;
 
         /// <summary>HP</summary>
         public ReadOnlyReactiveProperty<int> Health => health.ToReadOnlyReactiveProperty();
@@ -41,11 +46,7 @@ namespace Assets.Scripts.Model.Players
             //rigidbody2d = GetComponent<Rigidbody2D>();
             moveMaxSpeedX = 10;
             moveMaxSpeedY = 10;
-            mainWeapon = new OneShotWeapon(15, 30, 25, 30, 200, 25, 2);
-            IDisposable subscription = Health.Subscribe(x =>
-            {
-                Debug.Log(x);
-            });
+            mainWeapon = new OneShotWeapon(weaponData);
         }
 
         public void MoveUp() => Move(Direction.up);
@@ -84,8 +85,8 @@ namespace Assets.Scripts.Model.Players
 
         private void _Fire(bool primal)
         {
-            if (primal) mainWeapon.Fire();
-            Fired?.Invoke();
+            if (primal) if (mainWeapon.Fire()) Fired?.Invoke();
+            //if (!primal) if (subWeapon.Fire()) AltFired?.Invoke();
         }
 
         public void Reload()
@@ -111,7 +112,7 @@ namespace Assets.Scripts.Model.Players
 
         public void Damage(int damage) => health.Value = health.Value < damage ? 0 : health.Value - damage;
 
-        public void Heal(int cure) => health.Value = health.Value > maxHealth ? 0 : health.Value + cure;
+        public void Heal(int cure) => health.Value = health.Value > maxHealth ? maxHealth : health.Value + cure;
 
         private void Update()
         {

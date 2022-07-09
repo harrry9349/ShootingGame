@@ -673,6 +673,7 @@ GameObject:
   - component: {fileID: 352499446}
   - component: {fileID: 352499448}
   - component: {fileID: 352499447}
+  - component: {fileID: 352499449}
   m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
@@ -697,8 +698,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 82.95396, y: -208.59773}
-  m_SizeDelta: {x: 1.1191, y: 1.0911}
+  m_AnchoredPosition: {x: 75.89673, y: -200.99765}
+  m_SizeDelta: {x: 1, y: 1.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!212 &352499438
 SpriteRenderer:
@@ -740,7 +741,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 9fe4c93c4d8160a48a147f8db69fae0c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -805,6 +806,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c83714e924614c44b9adb22a7301495a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  weaponData: {fileID: 11400000, guid: 7da118c238bdfa54e994c4101855d339, type: 2}
 --- !u!114 &352499444
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -871,8 +873,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75eb9da76514b074897db65c10feb67d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 4579829945278250654, guid: 8cff3ea9ce5ffb243b1e1e2856b0cffb, type: 3}
-  bulletSpeed: 10
+--- !u!114 &352499449
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 352499436}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66dc0c95c02cb8248a9fe66f455080ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 352499443}
+  playerBulletRemainsView: {fileID: 497256510}
+  playerMaxBulletView: {fileID: 997193197}
 --- !u!1 &367107736
 GameObject:
   m_ObjectHideFlags: 0
@@ -1361,6 +1376,7 @@ GameObject:
   - component: {fileID: 497256507}
   - component: {fileID: 497256509}
   - component: {fileID: 497256508}
+  - component: {fileID: 497256510}
   m_Layer: 5
   m_Name: BulletRemainsText
   m_TagString: Untagged
@@ -1432,6 +1448,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 497256506}
   m_CullTransparentMesh: 1
+--- !u!114 &497256510
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 497256506}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a02b2da3ac4314749a8004a58b2c1136, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -2053,6 +2081,7 @@ GameObject:
   - component: {fileID: 997193194}
   - component: {fileID: 997193196}
   - component: {fileID: 997193195}
+  - component: {fileID: 997193197}
   m_Layer: 5
   m_Name: MaxBulletText
   m_TagString: Untagged
@@ -2124,6 +2153,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 997193193}
   m_CullTransparentMesh: 1
+--- !u!114 &997193197
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 997193193}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 996cfffb940ba924681501619bfae837, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1027903018
 GameObject:
   m_ObjectHideFlags: 0

@@ -7,8 +7,9 @@ public class WeaponPresenter : MonoBehaviour
 {
     public void Awake()
     {
-        var weapon = GetComponent<Player>();
+        var player = GetComponent<Player>();
         var weaponMuzzle = GetComponent<WeaponMuzzle>();
-        weapon.Fired += () => weaponMuzzle.Fire();
+        player.Fired += () => weaponMuzzle.Fire(player.weaponData);
+        //player.AltFired += () => weaponMuzzle.Fire(player.subWeaponData);
     }
 }
