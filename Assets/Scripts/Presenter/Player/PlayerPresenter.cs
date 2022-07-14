@@ -17,6 +17,7 @@ public class PlayerPresenter : MonoBehaviour
         gameInputs.Player.AltFire.performed += _ => player.AltFire();
         gameInputs.Player.Reload.performed += _ => player.Reload();
         gameInputs.Player.UseAbility.performed += _ => player.UseAbility();
+        gameInputs.Player.ChangeWeapon.performed += _ => player.ChangeWeapon();
         gameInputs.Enable();
     }
 
@@ -27,5 +28,7 @@ public class PlayerPresenter : MonoBehaviour
         if (gameInputs.Player.MoveLeft.IsPressed()) player.MoveLeft();
         if (gameInputs.Player.MoveDown.IsPressed()) player.MoveDown();
         if (gameInputs.Player.MoveRight.IsPressed()) player.MoveRight();
+        if (player.mainWeapon.IsAuto.Value == true) if (gameInputs.Player.AutoFire.IsPressed()) player.AutoFire();
+        if (player.altWeapon.IsAuto.Value == true) if (gameInputs.Player.AutoAltFire.IsPressed()) player.AutoAltFire();
     }
 }

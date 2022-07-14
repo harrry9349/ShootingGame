@@ -98,6 +98,33 @@ public partial class @GameInputs : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ChangeWeapon"",
+                    ""type"": ""Button"",
+                    ""id"": ""ed7425f2-cf7c-47e3-9c9d-32ab05ee29a8"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""AutoFire"",
+                    ""type"": ""Button"",
+                    ""id"": ""312a72c5-85d1-4af6-ac15-99f52f87a74d"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""AutoAltFire"",
+                    ""type"": ""Button"",
+                    ""id"": ""b91de9fd-3938-4e9b-a568-9a5062400b12"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -193,7 +220,7 @@ public partial class @GameInputs : IInputActionCollection2, IDisposable
                     ""name"": """",
                     ""id"": ""a01f9c4c-918d-4883-afc2-0b4e67c083b4"",
                     ""path"": ""<Keyboard>/z"",
-                    ""interactions"": """",
+                    ""interactions"": ""Press"",
                     ""processors"": """",
                     ""groups"": ""Keyboard&Mouse"",
                     ""action"": ""Fire"",
@@ -204,7 +231,7 @@ public partial class @GameInputs : IInputActionCollection2, IDisposable
                     ""name"": """",
                     ""id"": ""15770046-2d63-4034-92cc-d18f615fc9bc"",
                     ""path"": ""<Mouse>/leftButton"",
-                    ""interactions"": """",
+                    ""interactions"": ""Press"",
                     ""processors"": """",
                     ""groups"": ""Keyboard&Mouse"",
                     ""action"": ""Fire"",
@@ -215,7 +242,7 @@ public partial class @GameInputs : IInputActionCollection2, IDisposable
                     ""name"": """",
                     ""id"": ""22bb0ad6-beaa-4512-a445-376f24d6de95"",
                     ""path"": ""<Keyboard>/x"",
-                    ""interactions"": """",
+                    ""interactions"": ""Press"",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""AltFire"",
@@ -226,7 +253,7 @@ public partial class @GameInputs : IInputActionCollection2, IDisposable
                     ""name"": """",
                     ""id"": ""0a9cd09b-1948-431b-ba79-660977371d31"",
                     ""path"": ""<Mouse>/rightButton"",
-                    ""interactions"": """",
+                    ""interactions"": ""Press"",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""AltFire"",
@@ -252,6 +279,61 @@ public partial class @GameInputs : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""UseAbility"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""5f4f1707-3224-41e0-abe0-3156c2e21d3f"",
+                    ""path"": ""<Keyboard>/c"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ChangeWeapon"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""2a18de12-3608-41a1-a140-0f8fa64be895"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": ""Hold(duration=0.1)"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""AutoFire"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""7e93db19-f4cb-4b15-8a8d-f7a0728e35d0"",
+                    ""path"": ""<Keyboard>/z"",
+                    ""interactions"": ""Hold(duration=0.1)"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""AutoFire"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f176b9bf-8606-4f02-a35a-ab477ef9c86f"",
+                    ""path"": ""<Mouse>/rightButton"",
+                    ""interactions"": ""Hold(duration=0.1)"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""AutoAltFire"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""32a294b6-adae-4786-a0d3-4794745f4789"",
+                    ""path"": ""<Keyboard>/x"",
+                    ""interactions"": ""Hold(duration=0.1)"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""AutoAltFire"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -847,6 +929,9 @@ public partial class @GameInputs : IInputActionCollection2, IDisposable
         m_Player_AltFire = m_Player.FindAction("AltFire", throwIfNotFound: true);
         m_Player_Reload = m_Player.FindAction("Reload", throwIfNotFound: true);
         m_Player_UseAbility = m_Player.FindAction("UseAbility", throwIfNotFound: true);
+        m_Player_ChangeWeapon = m_Player.FindAction("ChangeWeapon", throwIfNotFound: true);
+        m_Player_AutoFire = m_Player.FindAction("AutoFire", throwIfNotFound: true);
+        m_Player_AutoAltFire = m_Player.FindAction("AutoAltFire", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -926,6 +1011,9 @@ public partial class @GameInputs : IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_AltFire;
     private readonly InputAction m_Player_Reload;
     private readonly InputAction m_Player_UseAbility;
+    private readonly InputAction m_Player_ChangeWeapon;
+    private readonly InputAction m_Player_AutoFire;
+    private readonly InputAction m_Player_AutoAltFire;
     public struct PlayerActions
     {
         private @GameInputs m_Wrapper;
@@ -938,6 +1026,9 @@ public partial class @GameInputs : IInputActionCollection2, IDisposable
         public InputAction @AltFire => m_Wrapper.m_Player_AltFire;
         public InputAction @Reload => m_Wrapper.m_Player_Reload;
         public InputAction @UseAbility => m_Wrapper.m_Player_UseAbility;
+        public InputAction @ChangeWeapon => m_Wrapper.m_Player_ChangeWeapon;
+        public InputAction @AutoFire => m_Wrapper.m_Player_AutoFire;
+        public InputAction @AutoAltFire => m_Wrapper.m_Player_AutoAltFire;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -971,6 +1062,15 @@ public partial class @GameInputs : IInputActionCollection2, IDisposable
                 @UseAbility.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnUseAbility;
                 @UseAbility.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnUseAbility;
                 @UseAbility.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnUseAbility;
+                @ChangeWeapon.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnChangeWeapon;
+                @ChangeWeapon.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnChangeWeapon;
+                @ChangeWeapon.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnChangeWeapon;
+                @AutoFire.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAutoFire;
+                @AutoFire.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAutoFire;
+                @AutoFire.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAutoFire;
+                @AutoAltFire.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAutoAltFire;
+                @AutoAltFire.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAutoAltFire;
+                @AutoAltFire.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAutoAltFire;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -999,6 +1099,15 @@ public partial class @GameInputs : IInputActionCollection2, IDisposable
                 @UseAbility.started += instance.OnUseAbility;
                 @UseAbility.performed += instance.OnUseAbility;
                 @UseAbility.canceled += instance.OnUseAbility;
+                @ChangeWeapon.started += instance.OnChangeWeapon;
+                @ChangeWeapon.performed += instance.OnChangeWeapon;
+                @ChangeWeapon.canceled += instance.OnChangeWeapon;
+                @AutoFire.started += instance.OnAutoFire;
+                @AutoFire.performed += instance.OnAutoFire;
+                @AutoFire.canceled += instance.OnAutoFire;
+                @AutoAltFire.started += instance.OnAutoAltFire;
+                @AutoAltFire.performed += instance.OnAutoAltFire;
+                @AutoAltFire.canceled += instance.OnAutoAltFire;
             }
         }
     }
@@ -1163,6 +1272,9 @@ public partial class @GameInputs : IInputActionCollection2, IDisposable
         void OnAltFire(InputAction.CallbackContext context);
         void OnReload(InputAction.CallbackContext context);
         void OnUseAbility(InputAction.CallbackContext context);
+        void OnChangeWeapon(InputAction.CallbackContext context);
+        void OnAutoFire(InputAction.CallbackContext context);
+        void OnAutoAltFire(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

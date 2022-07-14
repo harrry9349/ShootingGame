@@ -3,6 +3,7 @@ using UnityEngine;
 [CreateAssetMenu]
 public class WeaponScriptableObject : ScriptableObject
 {
+    public int weaponNO;
     public string weaponName;
     public string weaponViewName;
     public GameObject bulletPrefab;
@@ -16,4 +17,5 @@ public class WeaponScriptableObject : ScriptableObject
     public float bulletSpeed;
     public int cntBurst;
     public int burstInterval;
+    public bool IsAuto;
 }

@@ -76,6 +76,33 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "ChangeWeapon",
+                    "type": "Button",
+                    "id": "ed7425f2-cf7c-47e3-9c9d-32ab05ee29a8",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "AutoFire",
+                    "type": "Button",
+                    "id": "312a72c5-85d1-4af6-ac15-99f52f87a74d",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "AutoAltFire",
+                    "type": "Button",
+                    "id": "b91de9fd-3938-4e9b-a568-9a5062400b12",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -171,7 +198,7 @@
                     "name": "",
                     "id": "a01f9c4c-918d-4883-afc2-0b4e67c083b4",
                     "path": "<Keyboard>/z",
-                    "interactions": "",
+                    "interactions": "Press",
                     "processors": "",
                     "groups": "Keyboard&Mouse",
                     "action": "Fire",
@@ -182,7 +209,7 @@
                     "name": "",
                     "id": "15770046-2d63-4034-92cc-d18f615fc9bc",
                     "path": "<Mouse>/leftButton",
-                    "interactions": "",
+                    "interactions": "Press",
                     "processors": "",
                     "groups": "Keyboard&Mouse",
                     "action": "Fire",
@@ -193,7 +220,7 @@
                     "name": "",
                     "id": "22bb0ad6-beaa-4512-a445-376f24d6de95",
                     "path": "<Keyboard>/x",
-                    "interactions": "",
+                    "interactions": "Press",
                     "processors": "",
                     "groups": "",
                     "action": "AltFire",
@@ -204,7 +231,7 @@
                     "name": "",
                     "id": "0a9cd09b-1948-431b-ba79-660977371d31",
                     "path": "<Mouse>/rightButton",
-                    "interactions": "",
+                    "interactions": "Press",
                     "processors": "",
                     "groups": "",
                     "action": "AltFire",
@@ -230,6 +257,61 @@
                     "processors": "",
                     "groups": "",
                     "action": "UseAbility",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "5f4f1707-3224-41e0-abe0-3156c2e21d3f",
+                    "path": "<Keyboard>/c",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ChangeWeapon",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "2a18de12-3608-41a1-a140-0f8fa64be895",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "Hold(duration=0.1)",
+                    "processors": "",
+                    "groups": "",
+                    "action": "AutoFire",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "7e93db19-f4cb-4b15-8a8d-f7a0728e35d0",
+                    "path": "<Keyboard>/z",
+                    "interactions": "Hold(duration=0.1)",
+                    "processors": "",
+                    "groups": "",
+                    "action": "AutoFire",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "f176b9bf-8606-4f02-a35a-ab477ef9c86f",
+                    "path": "<Mouse>/rightButton",
+                    "interactions": "Hold(duration=0.1)",
+                    "processors": "",
+                    "groups": "",
+                    "action": "AutoAltFire",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "32a294b6-adae-4786-a0d3-4794745f4789",
+                    "path": "<Keyboard>/x",
+                    "interactions": "Hold(duration=0.1)",
+                    "processors": "",
+                    "groups": "",
+                    "action": "AutoAltFire",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

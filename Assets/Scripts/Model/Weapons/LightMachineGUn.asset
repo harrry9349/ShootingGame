@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d11891b111980824ea1ea9de24679761, type: 3}
+  m_Name: LightMachineGUn
+  m_EditorClassIdentifier: 
+  weaponNO: 7
+  weaponName: LightMachineGun
+  weaponViewName: LightMachineGun
+  bulletPrefab: {fileID: 1156760183801102659, guid: 00180f319a8cd614faeab984aebe4600, type: 3}
+  power: 0
+  interval: 2
+  maxAmmo: 50
+  sustain: 0.3
+  currentAmmo: 100
+  loadingAmmo: 50
+  reloadTime: 4
+  bulletSpeed: 2800
+  cntBurst: 1
+  burstInterval: 1
+  IsAuto: 1

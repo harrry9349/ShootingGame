@@ -5,6 +5,7 @@ public class PlayerBulletRemainsView : MonoBehaviour
 {
     public void UpdateBulletRemains(int loadingAmmo)
     {
-        GetComponent<Text>().text = loadingAmmo.ToString();
+        if (loadingAmmo < 1000) GetComponent<Text>().text = loadingAmmo.ToString();
+        else GetComponent<Text>().text = "Åá";
     }
 }

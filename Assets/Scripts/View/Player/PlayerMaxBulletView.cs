@@ -6,6 +6,7 @@ public class PlayerMaxBulletView : MonoBehaviour
     // Start is called before the first frame update
     public void UpdateCurrentBullet(int currentAmmo)
     {
-        GetComponent<Text>().text = currentAmmo.ToString();
+        if (currentAmmo < 1000) GetComponent<Text>().text = currentAmmo.ToString();
+        else GetComponent<Text>().text = "Åá";
     }
 }

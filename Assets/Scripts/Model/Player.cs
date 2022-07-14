@@ -9,7 +9,9 @@ namespace Assets.Scripts.Model.Players
     {
         public event Action Fired;
 
-        //public event Action AltFired;
+        public event Action AltFired;
+
+        public event Action ChangedWeapon;
 
         private readonly float LimitUP = 400f;
         private readonly float LimitLeft = -720f;
@@ -23,10 +25,14 @@ namespace Assets.Scripts.Model.Players
         private int moveMaxSpeedY;
 
         public IWeapon mainWeapon;
-        public IWeapon subWeapon;
+        public IWeapon altWeapon;
+
+        public PlayerLevel playerLevel;
+
+        private int weaponNO;
 
         [SerializeField]
-        public WeaponScriptableObject weaponData;
+        public WeaponScriptableObject[] weaponData;
 
         /// <summary>HP</summary>
         public ReadOnlyReactiveProperty<int> Health => health.ToReadOnlyReactiveProperty();
@@ -46,7 +52,9 @@ namespace Assets.Scripts.Model.Players
             //rigidbody2d = GetComponent<Rigidbody2D>();
             moveMaxSpeedX = 10;
             moveMaxSpeedY = 10;
-            mainWeapon = new OneShotWeapon(weaponData);
+            weaponNO = 0;
+            mainWeapon = new OneShotWeapon(weaponData[weaponNO]);
+            altWeapon = new OneShotWeapon(weaponData[1]);
         }
 
         public void MoveUp() => Move(Direction.up);
@@ -83,10 +91,14 @@ namespace Assets.Scripts.Model.Players
 
         public void AltFire() => _Fire(false);
 
+        public void AutoFire() => _Fire(true);
+
+        public void AutoAltFire() => _Fire(false);
+
         private void _Fire(bool primal)
         {
             if (primal) if (mainWeapon.Fire()) Fired?.Invoke();
-            //if (!primal) if (subWeapon.Fire()) AltFired?.Invoke();
+            if (!primal) if (altWeapon.Fire()) AltFired?.Invoke();
         }
 
         public void Reload()
@@ -105,9 +117,15 @@ namespace Assets.Scripts.Model.Players
             mainWeapon.AddSustain(1);
         }
 
-        public void AttachWeapon(IWeapon attachingWeapon, IWeapon attachedWeapon)
+        public void ChangeWeapon()
         {
-            attachedWeapon = attachingWeapon;
+            Debug.Log("ChangeWeapon:" + mainWeapon.WeaponViewName.Value);
+            weaponNO += 1;
+            weaponNO = weaponNO % 13;
+            //mainWeapon = null;
+            mainWeapon = new OneShotWeapon(weaponData[weaponNO]);
+            ChangedWeapon?.Invoke();
+            Debug.Log("ChangeWeapon:" + mainWeapon.WeaponViewName.Value);
         }
 
         public void Damage(int damage) => health.Value = health.Value < damage ? 0 : health.Value - damage;

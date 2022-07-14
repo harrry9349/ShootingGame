@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6878e1718bbdaf4d9da9634c8f76742, type: 3}
+  m_Name: SanpleEnemy
+  m_EditorClassIdentifier: 
+  enemyNO: 0
+  enemyName: 
+  enemyPrefab: {fileID: 0}
+  enemyBulletPrefab: {fileID: 6325367258927840494, guid: 26248ad76444c2044a738b20eb19bda7, type: 3}
+  maxHealth: 0
+  attackInerval: 30
+  bodyPower: 0
+  bulletPower: 0
+  moveSpeedX: 5
+  moveSpeedY: 5
+  bulletCount: 10
+  gainExp: 0

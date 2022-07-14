@@ -5,22 +5,23 @@ using UnityEngine;
 public class WeaponMuzzle : MonoBehaviour
 {
     // Start is called before the first frame update
-    public void Fire(WeaponScriptableObject weaponData)
+    public void Fire(GameObject bulletPrefab, IWeapon weapon)
     {
-        for (var cnt = 0; cnt < weaponData.cntBurst; cnt++)
+        for (var cnt = 0; cnt < weapon.CntBurst.Value; cnt++)
         {
-            Observable.TimerFrame(weaponData.burstInterval * cnt)
-            .Subscribe(_ => GenerateBullet(weaponData))
+            Observable.TimerFrame(weapon.BurstInterval.Value * cnt)
+            .Subscribe(_ => GenerateBullet(bulletPrefab, weapon))
             .AddTo(this);
         }
     }
 
-    public void GenerateBullet(WeaponScriptableObject weaponData)
+    public void GenerateBullet(GameObject bulletPrefab, IWeapon weapon)
     {
-        var bullet = Instantiate(weaponData.bulletPrefab, transform.position, transform.rotation);
-        bullet.GetComponent<BulletDestroyer>().deleteSeconds = weaponData.sustain;
+        var bullet = Instantiate(bulletPrefab, new Vector2(transform.position.x + 50, transform.position.y - 10), transform.rotation);
+        bullet.GetComponent<BulletDestroyer>().deleteSeconds = weapon.Sustain.Value;
+        bullet.GetComponent<BulletDestroyer>().damage = weapon.Power.Value;
         bullet.GetComponent<Rigidbody2D>().velocity = new Vector2(
-            (float)Math.Cos(transform.rotation.eulerAngles.z * (Math.PI / 180)) * weaponData.bulletSpeed,
-            (float)Math.Sin(transform.rotation.eulerAngles.z * (Math.PI / 180)) * weaponData.bulletSpeed);
+            (float)Math.Cos(transform.rotation.eulerAngles.z * (Math.PI / 180)) * weapon.BulletSpeed.Value,
+            (float)Math.Sin(transform.rotation.eulerAngles.z * (Math.PI / 180)) * weapon.BulletSpeed.Value);
     }
 }

@@ -12,16 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d11891b111980824ea1ea9de24679761, type: 3}
   m_Name: Pistol
   m_EditorClassIdentifier: 
+  weaponNO: 0
   weaponName: Pistol
   weaponViewName: Pistol
   bulletPrefab: {fileID: 1156760183801102659, guid: 382be818eecfa5a45bd711262c3d2147, type: 3}
   power: 15
-  interval: 3
+  interval: 6
   maxAmmo: 25
   sustain: 0.2
   currentAmmo: 100
   loadingAmmo: 25
-  reloadTime: 2
+  reloadTime: 1
   bulletSpeed: 2400
   cntBurst: 1
   burstInterval: 1
+  IsAuto: 0
