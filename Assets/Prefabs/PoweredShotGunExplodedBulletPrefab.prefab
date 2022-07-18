@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6325367258927840489}
   - component: {fileID: 6325367258927840490}
   - component: {fileID: 58615269285011983}
-  m_Layer: 10
+  m_Layer: 7
   m_Name: PoweredShotGunExplodedBulletPrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -18,8 +18,8 @@ public class WeaponMuzzle : MonoBehaviour
     public void GenerateBullet(GameObject bulletPrefab, IWeapon weapon)
     {
         var bullet = Instantiate(bulletPrefab, new Vector2(transform.position.x + 50, transform.position.y - 10), transform.rotation);
-        bullet.GetComponent<BulletDestroyer>().deleteSeconds = weapon.Sustain.Value;
-        bullet.GetComponent<BulletDestroyer>().damage = weapon.Power.Value;
+        bullet.GetComponent<BulletView>().deleteSeconds = weapon.Sustain.Value;
+        bullet.GetComponent<BulletView>().SetDamage(weapon.Power.Value);
         bullet.GetComponent<Rigidbody2D>().velocity = new Vector2(
             (float)Math.Cos(transform.rotation.eulerAngles.z * (Math.PI / 180)) * weapon.BulletSpeed.Value,
             (float)Math.Sin(transform.rotation.eulerAngles.z * (Math.PI / 180)) * weapon.BulletSpeed.Value);

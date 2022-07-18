@@ -14,6 +14,8 @@ public interface IWeapon
     public ReadOnlyReactiveProperty<int> CntBurst { get; }
     public ReadOnlyReactiveProperty<bool> IsAuto { get; }
 
+    public ReadOnlyReactiveProperty<String> WeaponSound { get; }
+
     bool Fire();
 
     void Reload();

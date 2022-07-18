@@ -1,12 +1,22 @@
 using UnityEngine;
 
-public class BulletDestroyer : MonoBehaviour
+public class BulletView : MonoBehaviour, IDamage
 {
     /// <summary>¶¬‚³‚ê‚Ä‚©‚çíœ‚Ü‚Å‚Ì•b”</summary>
     public float deleteSeconds;
 
     /// <summary>ƒ_ƒ[ƒW</summary>
-    public int damage;
+    private int damage;
+
+    public int GetDamage()
+    {
+        return damage;
+    }
+
+    public void SetDamage(int damage)
+    {
+        this.damage = damage;
+    }
 
     public void Start()
     {

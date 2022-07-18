@@ -14,13 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyNO: 0
   enemyName: 
-  enemyPrefab: {fileID: 0}
-  enemyBulletPrefab: {fileID: 6325367258927840494, guid: 26248ad76444c2044a738b20eb19bda7, type: 3}
+  enemyBulletPrefab: {fileID: 6325367258927840494, guid: cea3b706450039e43a7c0d5b05dd85d1, type: 3}
   maxHealth: 0
-  attackInerval: 30
-  bodyPower: 0
-  bulletPower: 0
+  attackInerval: 60
+  bodyPower: 50
+  bulletPower: 10
   moveSpeedX: 5
-  moveSpeedY: 5
-  bulletCount: 10
+  moveSpeedY: 10
+  angularSpeed: 5
+  bulletCount: 3
   gainExp: 0

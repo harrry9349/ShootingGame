@@ -16,7 +16,9 @@ public class OneShotWeapon : IWeapon
     private readonly FloatReactiveProperty bulletSpeed = new(0);
     private readonly IntReactiveProperty cntBurst = new(0);
     private readonly IntReactiveProperty burstInterval = new(0);
+    private readonly StringReactiveProperty weaponSound = new();
     private readonly BoolReactiveProperty isAuto = new(false);
+
     private bool shotAble = true;
     public ReadOnlyReactiveProperty<int> WeaponNO => weaponNO.ToReadOnlyReactiveProperty();
     public ReadOnlyReactiveProperty<string> WeaponViewName => weaponViewName.ToReadOnlyReactiveProperty();
@@ -30,6 +32,7 @@ public class OneShotWeapon : IWeapon
     public ReadOnlyReactiveProperty<float> BulletSpeed => bulletSpeed.ToReadOnlyReactiveProperty();
     public ReadOnlyReactiveProperty<int> CntBurst => cntBurst.ToReadOnlyReactiveProperty();
     public ReadOnlyReactiveProperty<int> BurstInterval => burstInterval.ToReadOnlyReactiveProperty();
+    public ReadOnlyReactiveProperty<string> WeaponSound => weaponSound.ToReadOnlyReactiveProperty();
     public ReadOnlyReactiveProperty<bool> IsAuto => isAuto.ToReadOnlyReactiveProperty();
 
     public OneShotWeapon(WeaponScriptableObject weaponData)
@@ -46,6 +49,7 @@ public class OneShotWeapon : IWeapon
         bulletSpeed.Value = weaponData.bulletSpeed;
         cntBurst.Value = weaponData.cntBurst;
         burstInterval.Value = weaponData.burstInterval;
+        weaponSound.Value = weaponData.weaponSound;
         isAuto.Value = weaponData.IsAuto;
     }
 
@@ -53,9 +57,11 @@ public class OneShotWeapon : IWeapon
     {
         if (loadingAmmo.Value == 0 || !shotAble)
         {
+            Sound.PlaySE("unableshot");
             return false;
         }
         shotAble = false;
+        Sound.PlaySE(weaponSound.Value);
         Debug.Log("OneShotWeapon:Fire");
         loadingAmmo.Value -= cntBurst.Value;
         Observable.TimerFrame(interval.Value)
@@ -86,6 +92,7 @@ public class OneShotWeapon : IWeapon
             currentAmmo.Value = 0;
         }
         shotAble = true;
+        Sound.PlaySE("reloadEnd");
     }
 
     public void AddPower(int power) => this.power.Value += power;

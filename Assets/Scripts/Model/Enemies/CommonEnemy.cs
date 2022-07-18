@@ -5,7 +5,7 @@ using UnityEngine;
 namespace Assets.Scripts.Model.Enemies
 {
     [RequireComponent(typeof(Rigidbody2D))]
-    public class CommonEnemy : MonoBehaviour
+    public class CommonEnemy : MonoBehaviour, IDamage
     {
         public event Action Attacked;
 
@@ -23,9 +23,6 @@ namespace Assets.Scripts.Model.Enemies
 
         [SerializeField]
         public EnemyScriptableObject enemyData;
-
-        //[SerializeField]
-        // public IMove movePattern;
 
         private enum Direction
         {
@@ -57,7 +54,7 @@ namespace Assets.Scripts.Model.Enemies
             if (movePattern == MovePattern.horizontal) transform.Translate(enemyData.moveSpeedX * -1, 0, 0);
             if (movePattern == MovePattern.verticalUp) transform.Translate(enemyData.moveSpeedX * -1, enemyData.moveSpeedY, 0);
             if (movePattern == MovePattern.verticalDown) transform.Translate(enemyData.moveSpeedX * -1, enemyData.moveSpeedY * -1, 0);
-            if (movePattern == MovePattern.curve) transform.Translate(enemyData.moveSpeedX * -1, enemyData.moveSpeedY * Mathf.Sin(Time.time * 5), 0);
+            if (movePattern == MovePattern.curve) transform.Translate(enemyData.moveSpeedX * -1, enemyData.moveSpeedY * Mathf.Sin(Time.time * enemyData.angularSpeed), 0);
         }
 
         public void Damage(int damage) => health.Value = health.Value < damage ? 0 : health.Value - damage;
@@ -67,9 +64,32 @@ namespace Assets.Scripts.Model.Enemies
             Attacked?.Invoke();
         }
 
-        public void Explode()
+        public int GetDamage()
         {
-            Exploded?.Invoke();
+            return enemyData.bodyPower;
+        }
+
+        public void OnTriggerEnter2D(Collider2D collision)
+        {
+            // ÚG‚µ‚½ƒIƒuƒWƒFƒNƒg‚ÌƒŒƒCƒ„[î•ñ“Ç‚Ýž‚Ý
+            var colLayerName = LayerMask.LayerToName(collision.gameObject.layer);
+            if (colLayerName == "Player")
+            {
+                // ÚG‚µ‚½‘ŠŽè‚ªƒvƒŒƒCƒ„[‚È‚ç“G”j‰ó
+                // ”š•—
+                Exploded?.Invoke();
+            }
+            else if (colLayerName == "PlayerBullet")
+            {
+                {
+                    // ÚG‚µ‚½‘ŠŽè‚ª’eŠÛ‚È‚çƒ_ƒ[ƒWŒvŽZ
+                    Damage(collision.gameObject.GetComponent<IDamage>().GetDamage());
+                    if (Health.Value == 0)
+                    {
+                        Exploded?.Invoke();
+                    }
+                }
+            }
         }
     }
 }

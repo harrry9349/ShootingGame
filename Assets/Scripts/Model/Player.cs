@@ -11,6 +11,8 @@ namespace Assets.Scripts.Model.Players
 
         public event Action AltFired;
 
+        public event Action Exploded;
+
         public event Action ChangedWeapon;
 
         private readonly float LimitUP = 400f;
@@ -103,6 +105,7 @@ namespace Assets.Scripts.Model.Players
 
         public void Reload()
         {
+            Sound.PlaySE("reload");
             Debug.Log("Reload");
             mainWeapon.Reload();
             health.Value -= 1;
@@ -110,6 +113,7 @@ namespace Assets.Scripts.Model.Players
 
         public void UseAbility()
         {
+            Sound.PlaySE("useAbility");
             Debug.Log("UseAbility");
             mainWeapon.AddPower(1);
             mainWeapon.SubtractInterval(1);
@@ -132,8 +136,22 @@ namespace Assets.Scripts.Model.Players
 
         public void Heal(int cure) => health.Value = health.Value > maxHealth ? maxHealth : health.Value + cure;
 
-        private void Update()
+        public void Explode()
         {
+            Destroy(gameObject);
+        }
+
+        public void OnTriggerEnter2D(Collider2D collision)
+        {
+            var colLayerName = LayerMask.LayerToName(collision.gameObject.layer);
+            if (colLayerName == "Enemy" || colLayerName == "EnemyBullet")
+            {
+                Damage(collision.gameObject.GetComponent<IDamage>().GetDamage());
+                if (Health.Value == 0)
+                {
+                    Explode();
+                }
+            }
         }
     }
 }

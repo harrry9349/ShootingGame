@@ -13,12 +13,16 @@ public class EnemyPresenter : MonoBehaviour
         enemy = GetComponent<CommonEnemy>();
         enemyView = GetComponent<CommonEnemyView>();
 
-        //enemy.Health.Subscribe(x => if(x == 0) enemyView.Explode());
+        //enemy.Health.Subscribe(x => enemyView.Explode());
         enemy.Attacked += () => enemyView.Attack(enemy.enemyData);
+        enemy.Exploded += () => enemyView.Explode();
     }
 
     public void Update()
     {
         enemy.Move();
     }
+
+
+
 }

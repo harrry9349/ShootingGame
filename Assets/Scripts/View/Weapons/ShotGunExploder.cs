@@ -24,8 +24,8 @@ public class ShotGunExploder : MonoBehaviour
             var bulletSpeedX = 600 * UnityEngine.Random.value;
             var bulletSpeedY = 1200 * UnityEngine.Random.value - 600;
             var bullet = Instantiate(bulletPrefab, transform.position, transform.rotation);
-            bullet.GetComponent<BulletDestroyer>().deleteSeconds = 0.4f * UnityEngine.Random.value + 0.2f;
-            bullet.GetComponent<BulletDestroyer>().damage = damage;
+            bullet.GetComponent<BulletView>().deleteSeconds = 0.4f * UnityEngine.Random.value + 0.2f;
+            bullet.GetComponent<BulletView>().SetDamage(damage);
             bullet.GetComponent<Rigidbody2D>().velocity = new Vector2(bulletSpeedX, bulletSpeedY);
         }
     }

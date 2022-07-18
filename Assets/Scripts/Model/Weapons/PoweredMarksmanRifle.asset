@@ -27,3 +27,4 @@ MonoBehaviour:
   cntBurst: 0
   burstInterval: 0
   IsAuto: 0
+  weaponSound: marksmanshot

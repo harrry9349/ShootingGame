@@ -21,8 +21,13 @@ public class CommonEnemyView : MonoBehaviour
         var bulletSpeedX = 600 * UnityEngine.Random.value;
         var bulletSpeedY = 1200 * UnityEngine.Random.value - 600;
         var bullet = Instantiate(bulletPrefab, new Vector2(transform.position.x, transform.position.y), transform.rotation);
-        bullet.GetComponent<BulletDestroyer>().deleteSeconds = 3.5f * UnityEngine.Random.value + 1.5f;
-        bullet.GetComponent<BulletDestroyer>().damage = bulletPower;
+        bullet.GetComponent<BulletView>().deleteSeconds = 3.5f * UnityEngine.Random.value + 1.5f;
+        bullet.GetComponent<BulletView>().SetDamage(bulletPower);
         bullet.GetComponent<Rigidbody2D>().velocity = new Vector2(bulletSpeedX, bulletSpeedY);
+    }
+
+    public void Explode()
+    {
+        Destroy(gameObject);
     }
 }

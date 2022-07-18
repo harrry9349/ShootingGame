@@ -18,4 +18,5 @@ public class WeaponScriptableObject : ScriptableObject
     public int cntBurst;
     public int burstInterval;
     public bool IsAuto;
+    public string weaponSound;
 }

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6087432295190446219}
   - component: {fileID: 5811365621550738732}
   - component: {fileID: 8851800309500428200}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: KnifeCutPrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -101,6 +101,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   deleteSeconds: 0
+  damage: 0
 --- !u!50 &6087432295190446219
 Rigidbody2D:
   serializedVersion: 4
@@ -132,7 +133,7 @@ CapsuleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.06883853, y: -0.0023744476}

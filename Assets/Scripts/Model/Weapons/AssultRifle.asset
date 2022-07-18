@@ -27,3 +27,4 @@ MonoBehaviour:
   cntBurst: 3
   burstInterval: 5
   IsAuto: 0
+  weaponSound: burstshot
