@@ -94,9 +94,7 @@ public class PlayerController : MonoBehaviour
         }
 
         // UŒ‚
-        //if (Input.GetKeyDown(KeyCode.Space))
-        //if (Input.GetMouseButtonDown(0))
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetMouseButtonDown(0))
         {
             // ’e‚ªØ‚ê‚Ä‚È‚¢‚©
             if (remainsShot > 0)

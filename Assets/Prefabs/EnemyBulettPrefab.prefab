@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6325367258927840488}
   - component: {fileID: 6325367258927840489}
   - component: {fileID: 6325367258927840490}
-  - component: {fileID: 5035573541426924513}
+  - component: {fileID: -7852330483224325672}
   m_Layer: 10
   m_Name: EnemyBulettPrefab
   m_TagString: Untagged
@@ -124,7 +124,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &5035573541426924513
+--- !u!114 &-7852330483224325672
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -133,10 +133,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 6325367258927840494}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64aa0621bbedf6d449dfca3cfd65a758, type: 3}
+  m_Script: {fileID: 11500000, guid: 661ede8608cd99c43b4edab1fa1572aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeedX: 20
-  moveSpeedY: 20
-  deleteTime: 5
-  Damage: 5
+  deleteSeconds: 0
+  damage: 0
